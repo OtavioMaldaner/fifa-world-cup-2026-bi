@@ -195,9 +195,10 @@ nesta revisão** — ver decisão pendente ao final desta seção.
 ### Faxina do modelo
 
 1. Desligar *Opções → Carregar Dados → Inteligência de Tempo automática* e
-   recarregar — remove as 14 tabelas `LocalDateTable_*` e as 27 relações de
-   data associadas. Um torneio de 5 semanas não usa hierarquia de data
-   automática.
+   recarregar — remove as 13 tabelas `LocalDateTable_*`, a 1 tabela
+   `DateTableTemplate_*` (14 arquivos no total) e as 13 relações de data
+   associadas (confirmado por contagem em `relationships.tmdl`). Um torneio
+   de 5 semanas não usa hierarquia de data automática.
 2. Ocultar `ft_partidas` do painel de campos (permanece como tabela-ponte).
 3. Renomear colunas para os nomes de negócio em PT-BR usando os campos
    `display_name` de `metadata.py` como fonte única — Genie e Power BI passam
@@ -413,8 +414,9 @@ e `dim_etapas[stage_name]`. `dim_estadios` e `dim_arbitros` só alcançam
   deste documento, decisão de execução).
 - **Pênaltis fora de `points`/`result`:** aceito como está, com nota de
   rodapé visível na página 3.
-- **Genie não conhece as views analíticas:** diferença de escopo entre o que
-  o Genie responde e o que o dashboard mostra, sem correção prevista aqui.
+- ~~**Genie não conhece as views analíticas**~~ — corrigido na revisão de
+  2026-08-08 (achado 4): o Genie foi atualizado e agora conhece as 4 views.
+  Risco encerrado, mantido aqui só como registro histórico.
 - **`dim_estadios` sem altitude/coordenada:** decisão do usuário — mapa por
   nome de cidade, sem corrigir a gold.
 
