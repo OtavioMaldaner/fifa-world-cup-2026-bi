@@ -10,7 +10,7 @@ table dim_selecoes
 
 		annotation SummarizationSetBy = Automatic
 
-	column team_name
+	column Seleção
 		dataType: string
 		lineageTag: f95803d4-88b9-4c10-9d86-63d3b72a113b
 		summarizeBy: none

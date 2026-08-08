@@ -196,7 +196,7 @@ EOF
 - Consumes: Task 1's cleaned-up `ft_partidas.tmdl` (no `variation` blocks left).
 - Produces: `ft_partidas` marked `isHidden` — later tasks (report-level filter in Task 8) still reference `ft_partidas[status]` by name; a hidden table remains fully usable by filters and DAX, it just doesn't appear in the Desktop field-list tree.
 
-- [ ] **Step 1: Add `isHidden` to the table declaration**
+- [x] **Step 1: Add `isHidden` to the table declaration**
 
 Read the current first lines of the file to confirm the exact declaration line, then edit:
 
@@ -211,7 +211,7 @@ table ft_partidas
 	lineageTag: <existing-guid>
 ```
 
-- [ ] **Step 2: Verify**
+- [x] **Step 2: Verify**
 
 ```bash
 grep -A1 "^table ft_partidas" "BI - Semana da Informática/fifa-world-cup-2026.SemanticModel/definition/tables/ft_partidas.tmdl"
@@ -219,7 +219,7 @@ grep -A1 "^table ft_partidas" "BI - Semana da Informática/fifa-world-cup-2026.S
 
 Expected: `isHidden` on the line immediately after `table ft_partidas`.
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 cd "BI - Semana da Informática"
@@ -261,7 +261,7 @@ EOF
 
 **Known limitation, not fixed here:** renaming a column changes its *label*, not the *values* inside it. `dim_etapas[Fase]` values (`"Group Stage"`, `"Round of 32"`, …) and `vw_selecao_partida[Resultado]` values (`WIN`/`DRAW`/`LOSS`) stay in English — the Genie's own metadata flags this exact confusion risk ("Nunca chame o Round of 32 de oitavas"). Translating cell values requires a calculated column or Power Query step, which is out of scope for this plan. Axis labels on the "Gols por Fase" chart and the "Resultado" table column will show English text; call this out when presenting the report.
 
-- [ ] **Step 1: `dim_selecoes.team_name` → `Seleção`**
+- [x] **Step 1: `dim_selecoes.team_name` → `Seleção`**
 
 ```tmdl
 // before
@@ -281,7 +281,7 @@ EOF
 
 (`sourceColumn` stays `team_name` — that is the Power Query output column name, unrelated to the display name.)
 
-- [ ] **Step 2: `dim_etapas.stage_name` → `Fase`, with `sortByColumn`**
+- [x] **Step 2: `dim_etapas.stage_name` → `Fase`, with `sortByColumn`**
 
 ```tmdl
 // before
@@ -302,7 +302,7 @@ EOF
 
 `stage_id` (1=Group Stage … 7=Final) is already in tournament order — confirmed against `tournament_stages.csv` before writing this plan — so this one property addition is what makes the P1 "Gols por Fase" chart sort correctly instead of alphabetically.
 
-- [ ] **Step 3: `dim_estadios.city` → `Cidade`, `country` → `'País-Sede'`**
+- [x] **Step 3: `dim_estadios.city` → `Cidade`, `country` → `'País-Sede'`**
 
 ```tmdl
 // before
@@ -336,7 +336,7 @@ EOF
 		sourceColumn: country
 ```
 
-- [ ] **Step 4: `vw_selecao_partida.opponent_name` → `Adversário`, `.result` → `Resultado`, `.match_date` → `'Data da Partida'`**
+- [x] **Step 4: `vw_selecao_partida.opponent_name` → `Adversário`, `.result` → `Resultado`, `.match_date` → `'Data da Partida'`**
 
 ```tmdl
 // before
@@ -396,7 +396,7 @@ EOF
 		annotation UnderlyingDateTimeDataType = Date
 ```
 
-- [ ] **Step 5: Confirm none of the 7 renamed columns appear in `relationships.tmdl`**
+- [x] **Step 5: Confirm none of the 7 renamed columns appear in `relationships.tmdl`**
 
 ```bash
 cd "BI - Semana da Informática/fifa-world-cup-2026.SemanticModel/definition"
@@ -406,11 +406,11 @@ cd ../../..
 
 Expected: no output. If anything matches, stop — a relationship references one of these columns by its old name and must be updated in the same commit, or the model will fail to load.
 
-- [ ] **Step 6: Static validation (agent gate)**
+- [x] **Step 6: Static validation (agent gate)**
 
 Dispatch `pbip-validator` against `fifa-world-cup-2026.SemanticModel` again. Zero errors expected.
 
-- [ ] **Step 7: Commit**
+- [x] **Step 7: Commit**
 
 ```bash
 cd "BI - Semana da Informática"
