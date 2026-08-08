@@ -1,0 +1,123 @@
+table _Measures
+	lineageTag: 00000000-0000-0000-0000-000000000001
+
+	column _dummy
+		dataType: int64
+		isHidden
+		lineageTag: 00000000-0000-0000-0000-000000000002
+		summarizeBy: none
+		sourceColumn: _dummy
+
+	measure 'Total de Partidas' = DISTINCTCOUNT(vw_selecao_partida[match_id])
+		formatString: #,##0
+		displayFolder: _Torneio
+		lineageTag: 00000000-0000-0000-0000-000000000101
+
+	measure 'Seleções' = DISTINCTCOUNT(vw_selecao_partida[team_id])
+		formatString: #,##0
+		displayFolder: _Torneio
+		lineageTag: 00000000-0000-0000-0000-000000000102
+
+	measure 'Gols Marcados' = SUM(vw_selecao_partida[goals_for])
+		formatString: #,##0
+		displayFolder: _Torneio
+		lineageTag: 00000000-0000-0000-0000-000000000103
+
+	measure 'Gols Sofridos' = SUM(vw_selecao_partida[goals_against])
+		formatString: #,##0
+		displayFolder: _Torneio
+		lineageTag: 00000000-0000-0000-0000-000000000104
+
+	measure 'Saldo de Gols' = [Gols Marcados] - [Gols Sofridos]
+		formatString: #,##0;-#,##0
+		displayFolder: _Torneio
+		lineageTag: 00000000-0000-0000-0000-000000000105
+
+	measure 'Média de Gols/Partida' = DIVIDE([Gols Marcados], [Total de Partidas])
+		formatString: #,##0.00
+		displayFolder: _Torneio
+		lineageTag: 00000000-0000-0000-0000-000000000106
+
+	measure 'Pontos Conquistados' = SUM(vw_selecao_partida[points])
+		formatString: #,##0
+		displayFolder: _Desempenho
+		lineageTag: 00000000-0000-0000-0000-000000000201
+
+	measure 'Vitórias' = CALCULATE([Total de Partidas], vw_selecao_partida[result] = "WIN")
+		formatString: #,##0
+		displayFolder: _Desempenho
+		lineageTag: 00000000-0000-0000-0000-000000000202
+
+	measure 'Aproveitamento (%)' = DIVIDE([Pontos Conquistados], [Total de Partidas] * 3)
+		formatString: 0.0%
+		displayFolder: _Desempenho
+		lineageTag: 00000000-0000-0000-0000-000000000203
+
+	measure 'xG a Favor' = SUM(vw_selecao_partida[xg_for])
+		formatString: #,##0.00
+		displayFolder: _Desempenho
+		lineageTag: 00000000-0000-0000-0000-000000000204
+
+	measure 'xG Contra' = SUM(vw_selecao_partida[xg_against])
+		formatString: #,##0.00
+		displayFolder: _Desempenho
+		lineageTag: 00000000-0000-0000-0000-000000000205
+
+	measure 'Eficiência Ofensiva (Gols/xG)' = DIVIDE([Gols Marcados], [xG a Favor])
+		formatString: 0.00
+		displayFolder: _Desempenho
+		lineageTag: 00000000-0000-0000-0000-000000000206
+
+	measure 'Pontos Esperados (xPts)' = SUM(vw_xpts_selecao_partida[expected_points])
+		formatString: #,##0.00
+		displayFolder: _Avançado
+		lineageTag: 00000000-0000-0000-0000-000000000301
+
+	measure 'Pontos Acima do Esperado' = SUM(vw_xpts_selecao_partida[points_above_expected])
+		formatString: #,##0.00;-#,##0.00
+		displayFolder: _Avançado
+		lineageTag: 00000000-0000-0000-0000-000000000302
+
+	measure 'Pontos Reais (xPts)' = SUM(vw_xpts_selecao_partida[actual_points])
+		formatString: #,##0
+		displayFolder: _Avançado
+		lineageTag: 00000000-0000-0000-0000-000000000303
+
+	measure 'Pontos Recuperados' = SUM(vw_pontos_recuperados[recovered_points])
+		formatString: #,##0
+		displayFolder: _Avançado
+		lineageTag: 00000000-0000-0000-0000-000000000304
+
+	measure 'Jogos Atrás no Placar' = CALCULATE(COUNTROWS(vw_pontos_recuperados), vw_pontos_recuperados[was_behind] = TRUE())
+		formatString: #,##0
+		displayFolder: _Avançado
+		lineageTag: 00000000-0000-0000-0000-000000000305
+
+	measure 'Estabilidade da Escalação (%)' = AVERAGE(vw_estabilidade_escalacao[lineup_stability_pct])
+		formatString: 0.0%
+		displayFolder: _Avançado
+		lineageTag: 00000000-0000-0000-0000-000000000306
+
+	measure 'Aproveitamento (%) Médio' = CALCULATE([Aproveitamento (%)], REMOVEFILTERS(dim_selecoes))
+		formatString: 0.0%
+		displayFolder: _Referência
+		lineageTag: 00000000-0000-0000-0000-000000000401
+
+	measure 'Média Gols/Partida Torneio' = CALCULATE([Média de Gols/Partida], REMOVEFILTERS(dim_selecoes))
+		formatString: #,##0.00
+		displayFolder: _Referência
+		lineageTag: 00000000-0000-0000-0000-000000000402
+
+	measure 'Eficiência Média Torneio' = CALCULATE([Eficiência Ofensiva (Gols/xG)], REMOVEFILTERS(dim_selecoes))
+		formatString: 0.00
+		displayFolder: _Referência
+		lineageTag: 00000000-0000-0000-0000-000000000403
+
+	measure 'Pontos Médios por Seleção' = CALCULATE(DIVIDE([Pontos Conquistados], [Seleções]), REMOVEFILTERS(dim_selecoes))
+		formatString: #,##0.0
+		displayFolder: _Referência
+		lineageTag: 00000000-0000-0000-0000-000000000404
+
+	partition _Measures = calculated
+		mode: import
+		source = ROW("_dummy", 0)

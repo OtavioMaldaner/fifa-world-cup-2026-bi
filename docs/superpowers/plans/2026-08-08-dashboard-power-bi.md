@@ -448,7 +448,7 @@ EOF
   - `_Avançado`: `Pontos Esperados (xPts)`, `Pontos Acima do Esperado`, `Pontos Reais (xPts)`, `Pontos Recuperados`, `Jogos Atrás no Placar`, `Estabilidade da Escalação (%)`
   - `_Referência`: `Aproveitamento (%) Médio`, `Média Gols/Partida Torneio`, `Eficiência Média Torneio`, `Pontos Médios por Seleção`
 
-- [ ] **Step 1: Write the measure-generation script**
+- [x] **Step 1: Write the measure-generation script**
 
 Measures live in a new empty calculated table `_Measures` (SQLBI convention: a table that holds only measures, so the field list doesn't force every measure onto whichever fact table it happens to aggregate). Generating all 22 from one Python list avoids hand-typing 22 TMDL blocks and guarantees unique `lineageTag`s.
 
@@ -523,7 +523,7 @@ lines += [
 print(f"Wrote _Measures.tmdl with {len(MEASURES)} measures.")
 ```
 
-- [ ] **Step 2: Run it**
+- [x] **Step 2: Run it**
 
 ```bash
 cd "BI - Semana da Informática"
@@ -532,7 +532,7 @@ python3 /tmp/generate_measures.py
 
 Expected output: `Wrote _Measures.tmdl with 22 measures.`
 
-- [ ] **Step 3: Register the new table in `model.tmdl`**
+- [x] **Step 3: Register the new table in `model.tmdl`**
 
 Add one line to the `ref table` list (any position is fine; TMDL doesn't require alphabetical order — match the existing style by adding it near the top):
 
@@ -541,7 +541,7 @@ ref table _Measures
 ref table vw_xpts_selecao_partida
 ```
 
-- [ ] **Step 4: Spot-check the generated file**
+- [x] **Step 4: Spot-check the generated file**
 
 ```bash
 head -30 "fifa-world-cup-2026.SemanticModel/definition/tables/_Measures.tmdl"
@@ -550,11 +550,11 @@ grep -c "^\tmeasure " "fifa-world-cup-2026.SemanticModel/definition/tables/_Meas
 
 Confirm indentation is tabs (not spaces) and every `measure` line has a matching `formatString`/`displayFolder`/`lineageTag` triplet below it.
 
-- [ ] **Step 5: Static validation (agent gate)**
+- [x] **Step 5: Static validation (agent gate)**
 
 Dispatch `pbip-validator` against `fifa-world-cup-2026.SemanticModel`. It checks TMDL syntax and referential integrity (e.g., that `_dummy` the column matches `_dummy` in the `ROW(...)` source) but **cannot evaluate the DAX** — `DIVIDE`, `CALCULATE`, `REMOVEFILTERS` syntax correctness and the actual numeric output are a **user gate**, checked in Task 14.
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 cd "BI - Semana da Informática"
