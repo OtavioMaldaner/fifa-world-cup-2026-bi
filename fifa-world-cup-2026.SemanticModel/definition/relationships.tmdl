@@ -1,0 +1,261 @@
+relationship a3a459fb-5aeb-4d4e-b0db-4934f6dc68bb
+	joinOnDateBehavior: datePartOnly
+	fromColumn: vw_xpts_selecao_partida.match_date
+	toColumn: LocalDateTable_7133a686-cba9-4088-81e0-500a1cd8bc4d.Date
+
+relationship c26f7775-9268-4c50-a625-1768e91570a7
+	joinOnDateBehavior: datePartOnly
+	fromColumn: vw_xpts_selecao_partida.kickoff_time_utc
+	toColumn: LocalDateTable_7dd71d78-dec5-4119-8983-4188cf14a36e.Date
+
+relationship 1fc2a0d5-8035-420c-adaf-8a5246dc7514
+	joinOnDateBehavior: datePartOnly
+	fromColumn: vw_selecao_partida.match_date
+	toColumn: LocalDateTable_f6dc5d06-5aa9-479e-93d8-bec8e68d4462.Date
+
+relationship 466fb02f-c428-4ad6-abe1-6b8f7306edcd
+	joinOnDateBehavior: datePartOnly
+	fromColumn: vw_selecao_partida.kickoff_time_utc
+	toColumn: LocalDateTable_0d324503-c34f-4524-acc5-28b1afab3dae.Date
+
+relationship 701157b5-f420-4d96-a51b-6c2e1b58d605
+	joinOnDateBehavior: datePartOnly
+	fromColumn: vw_pontos_recuperados.match_date
+	toColumn: LocalDateTable_e62b1ceb-f6ce-478f-abbe-961dbaaecce6.Date
+
+relationship cce1fdb3-41fb-4f5e-97ce-227f145a7850
+	joinOnDateBehavior: datePartOnly
+	fromColumn: vw_pontos_recuperados.kickoff_time_utc
+	toColumn: LocalDateTable_74965fb4-82a1-4e74-8791-aaa269062309.Date
+
+relationship b54241c9-f1ff-4dee-a06c-67aa6f5e197a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: vw_estabilidade_escalacao.match_date
+	toColumn: LocalDateTable_b86e0c8e-7aa2-4741-b584-6bf52904df4f.Date
+
+relationship 74778542-06af-4e88-a128-532ce624aed3
+	joinOnDateBehavior: datePartOnly
+	fromColumn: vw_estabilidade_escalacao.kickoff_time_utc
+	toColumn: LocalDateTable_12f77402-86e6-4d72-9d12-02eff9393790.Date
+
+relationship 610ba9e3-f0f4-4a16-a55f-ddf3e54ba8fa
+	joinOnDateBehavior: datePartOnly
+	fromColumn: ft_partidas.date
+	toColumn: LocalDateTable_b7832c73-c6ac-40f6-854d-4d3c60acb2ad.Date
+
+relationship c10ca0db-48a6-4f9c-a781-2b7917a7ad0d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: ft_partidas.kickoff_time_utc
+	toColumn: LocalDateTable_b95570d7-d2e9-4442-95b9-0120b68f00aa.Date
+
+relationship eef41c31-ca36-4167-8380-8660841da839
+	joinOnDateBehavior: datePartOnly
+	fromColumn: ft_estatisticas_jogador.last_verified
+	toColumn: LocalDateTable_803eef3e-4c84-40d5-880a-fe82aaefb307.Date
+
+relationship f50922a2-8cb0-44a1-8621-68dff45504b5
+	joinOnDateBehavior: datePartOnly
+	fromColumn: ft_estatisticas_equipe.last_updated
+	toColumn: LocalDateTable_6b8ed32c-1356-401a-9638-b5ddb55bcd71.Date
+
+relationship be7cf714-1815-4546-afa4-dc9be23c1fc8
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_jogadores.date_of_birth
+	toColumn: LocalDateTable_d0568c74-a0cb-417b-b2a3-aea01fd807f5.Date
+
+relationship 4e88d9e0-a8f8-432d-a888-d579bb120516
+	fromColumn: vw_xpts_selecao_partida.stage_id
+	toColumn: dim_etapas.stage_id
+
+	annotation PBI_IsFromSource = FS
+
+relationship 351c29bc-150a-4442-ac9d-b1e5c382a1f9
+	fromColumn: vw_xpts_selecao_partida.team_id
+	toColumn: dim_selecoes.team_id
+
+	annotation PBI_IsFromSource = FS
+
+relationship b0893e38-aba8-4b1c-b8c4-a325ef1c1d0b
+	isActive: false
+	fromColumn: vw_xpts_selecao_partida.opponent_team_id
+	toColumn: dim_selecoes.team_id
+
+	annotation PBI_IsFromSource = FS
+
+relationship ae879338-375a-42c3-84d0-a3f20a9308be
+	fromColumn: vw_selecao_partida.match_id
+	toColumn: ft_partidas.match_id
+
+	annotation PBI_IsFromSource = FS
+
+relationship 7b2fb115-e306-4e2f-8675-3c7259bf87fd
+	fromColumn: vw_selecao_partida.stage_id
+	toColumn: dim_etapas.stage_id
+
+	annotation PBI_IsFromSource = FS
+
+relationship 7d060a66-573f-4bdb-9d3f-1ff06b00acef
+	fromColumn: vw_selecao_partida.venue_id
+	toColumn: dim_estadios.venue_id
+
+	annotation PBI_IsFromSource = FS
+
+relationship c504dea8-c5ee-473f-b487-9a0cfe543a68
+	fromColumn: vw_selecao_partida.referee_id
+	toColumn: dim_arbitros.referee_id
+
+	annotation PBI_IsFromSource = FS
+
+relationship 92c91d4e-be39-49ba-b74c-b03fdb555b38
+	fromColumn: vw_selecao_partida.team_id
+	toColumn: dim_selecoes.team_id
+
+	annotation PBI_IsFromSource = FS
+
+relationship 82526d8f-a4ce-42de-a6fe-1bd03b0da302
+	isActive: false
+	fromColumn: vw_selecao_partida.opponent_team_id
+	toColumn: dim_selecoes.team_id
+
+	annotation PBI_IsFromSource = FS
+
+relationship 70ae63da-40ca-46bc-b49e-bfe42b4ed129
+	fromColumn: vw_pontos_recuperados.stage_id
+	toColumn: dim_etapas.stage_id
+
+	annotation PBI_IsFromSource = FS
+
+relationship 6a3af698-dc55-49be-8a45-cb8a0c37e249
+	fromColumn: vw_pontos_recuperados.team_id
+	toColumn: dim_selecoes.team_id
+
+	annotation PBI_IsFromSource = FS
+
+relationship 32ff9b51-91fa-4812-a5f4-32b0eb425100
+	isActive: false
+	fromColumn: vw_pontos_recuperados.opponent_team_id
+	toColumn: dim_selecoes.team_id
+
+	annotation PBI_IsFromSource = FS
+
+relationship e20c884a-395c-42db-b585-60f23f8e46d3
+	fromColumn: vw_estabilidade_escalacao.team_id
+	toColumn: dim_selecoes.team_id
+
+	annotation PBI_IsFromSource = FS
+
+relationship b36453c8-0110-49ca-bfb4-dd8b4fabc684
+	fromColumn: vw_estabilidade_escalacao.match_id
+	toColumn: ft_partidas.match_id
+
+	annotation PBI_IsFromSource = FS
+
+relationship 0406fe8d-f006-445e-83bd-1ca93990d78a
+	isActive: false
+	fromColumn: vw_estabilidade_escalacao.previous_match_id
+	toColumn: ft_partidas.match_id
+
+	annotation PBI_IsFromSource = FS
+
+relationship 74bbc504-49cd-4340-b0f4-2cc0f852ae1b
+	fromColumn: vw_estabilidade_escalacao.stage_id
+	toColumn: dim_etapas.stage_id
+
+	annotation PBI_IsFromSource = FS
+
+relationship d879a6f9-03b1-4f28-bd0f-9899da6e5815
+	isActive: false
+	fromColumn: vw_estabilidade_escalacao.opponent_team_id
+	toColumn: dim_selecoes.team_id
+
+	annotation PBI_IsFromSource = FS
+
+relationship dfa1e9ed-83da-4d14-891b-1a8a7b1a8104
+	isActive: false
+	fromColumn: ft_partidas.stage_id
+	toColumn: dim_etapas.stage_id
+
+	annotation PBI_IsFromSource = FS
+
+relationship 7a7feb81-e1cd-4035-b499-09e16b4894f3
+	isActive: false
+	fromColumn: ft_partidas.venue_id
+	toColumn: dim_estadios.venue_id
+
+	annotation PBI_IsFromSource = FS
+
+relationship ee07b7f0-6de4-45ea-bcf7-55690d987e66
+	isActive: false
+	fromColumn: ft_partidas.home_team_id
+	toColumn: dim_selecoes.team_id
+
+	annotation PBI_IsFromSource = FS
+
+relationship 2dee7578-e531-4df5-8252-885c2a954de0
+	isActive: false
+	fromColumn: ft_partidas.away_team_id
+	toColumn: dim_selecoes.team_id
+
+	annotation PBI_IsFromSource = FS
+
+relationship 31076066-88a6-4734-a7f3-2b99699fe845
+	fromColumn: ft_eventos.match_id
+	toColumn: ft_partidas.match_id
+
+	annotation PBI_IsFromSource = FS
+
+relationship 66a82025-ba41-4a7a-9a14-46a7ac2e08aa
+	fromColumn: ft_eventos.team_id
+	toColumn: dim_selecoes.team_id
+
+	annotation PBI_IsFromSource = FS
+
+relationship 6fcde4a7-db94-4200-a7ec-691731e83a3a
+	fromColumn: ft_eventos.player_id
+	toColumn: dim_jogadores.player_id
+
+	annotation PBI_IsFromSource = FS
+
+relationship 99176784-8f48-4c05-8f78-cfafbbc4f5bd
+	fromColumn: ft_estatisticas_jogador.team_id
+	toColumn: dim_selecoes.team_id
+
+	annotation PBI_IsFromSource = FS
+
+relationship b050b0e1-634c-4803-916c-69ff881846d1
+	fromColumn: ft_estatisticas_equipe.match_id
+	toColumn: ft_partidas.match_id
+
+	annotation PBI_IsFromSource = FS
+
+relationship 311537a6-c031-4d65-bab3-95643e8d9656
+	fromColumn: ft_estatisticas_equipe.team_id
+	toColumn: dim_selecoes.team_id
+
+	annotation PBI_IsFromSource = FS
+
+relationship c5355596-1f7d-4974-bfd3-df896ba7cad7
+	fromColumn: ft_escalacoes.match_id
+	toColumn: ft_partidas.match_id
+
+	annotation PBI_IsFromSource = FS
+
+relationship c7be4b23-6dc6-40fa-abf3-f5dc60bbd0ba
+	fromColumn: ft_escalacoes.player_id
+	toColumn: dim_jogadores.player_id
+
+	annotation PBI_IsFromSource = FS
+
+relationship 631e44eb-a7a4-4054-9614-107f6fcdfff4
+	fromColumn: ft_escalacoes.team_id
+	toColumn: dim_selecoes.team_id
+
+	annotation PBI_IsFromSource = FS
+
+relationship b156c3be-37df-4be2-ac6d-f43f936501f9
+	isActive: false
+	fromColumn: dim_jogadores.team_id
+	toColumn: dim_selecoes.team_id
+
+	annotation PBI_IsFromSource = FS
+

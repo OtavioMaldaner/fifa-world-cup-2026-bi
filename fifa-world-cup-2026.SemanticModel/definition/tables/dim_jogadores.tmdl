@@ -1,0 +1,81 @@
+table dim_jogadores
+	lineageTag: 28835dce-17d6-431b-8725-14405afa033d
+
+	column player_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 75faafdd-c22a-4a31-938d-79d16753355a
+		summarizeBy: none
+		sourceColumn: player_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column team_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 28b4315f-70a3-454f-97ce-d15d4332abbe
+		summarizeBy: sum
+		sourceColumn: team_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column player_name
+		dataType: string
+		lineageTag: 86e1b6f7-3bed-4cf0-866d-66469e107f5b
+		summarizeBy: none
+		sourceColumn: player_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column position
+		dataType: string
+		lineageTag: 607481e2-aeee-4a04-a90b-587e38ee57b5
+		summarizeBy: none
+		sourceColumn: position
+
+		annotation SummarizationSetBy = Automatic
+
+	column club_team
+		dataType: string
+		lineageTag: 76f07158-413f-4488-8cf7-7998c5c1ded5
+		summarizeBy: none
+		sourceColumn: club_team
+
+		annotation SummarizationSetBy = Automatic
+
+	column height_cm
+		dataType: int64
+		formatString: 0
+		lineageTag: 82df63de-fea6-42ec-9cf2-09efedb3e88c
+		summarizeBy: sum
+		sourceColumn: height_cm
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_of_birth
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 5f2050e7-de26-4abf-9c1a-62ca5610db75
+		summarizeBy: none
+		sourceColumn: date_of_birth
+
+		variation Variation
+			isDefault
+			relationship: be7cf714-1815-4546-afa4-dc9be23c1fc8
+			defaultHierarchy: LocalDateTable_d0568c74-a0cb-417b-b2a3-aea01fd807f5.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition dim_jogadores = m
+		mode: import
+		source =
+				let
+				    Fonte = DatabricksMultiCloud.Catalogs("dbc-151defb8-8e14.cloud.databricks.com", "/sql/1.0/warehouses/36661ad2fa1e9792", [Catalog=null, Database=null, QueryTags=null, EnableAutomaticProxyDiscovery=null, Implementation="2.0", Protocol=null]),
+				    fifa_world_cup_2026_Database = Fonte{[Name="fifa_world_cup_2026",Kind="Database"]}[Data],
+				    gold_Schema = fifa_world_cup_2026_Database{[Name="gold",Kind="Schema"]}[Data],
+				    dim_jogadores_View = gold_Schema{[Name="dim_jogadores",Kind="View"]}[Data]
+				in
+				    dim_jogadores_View
+

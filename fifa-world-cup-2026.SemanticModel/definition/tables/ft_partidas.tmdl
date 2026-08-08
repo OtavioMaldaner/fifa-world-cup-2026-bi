@@ -1,0 +1,144 @@
+table ft_partidas
+	lineageTag: eb65e431-3965-4767-9ec5-be7409b8bf7a
+
+	column match_id
+		dataType: int64
+		formatString: 0
+		lineageTag: afda88c8-5ed4-481d-aa46-5ddb0b1b8afa
+		summarizeBy: none
+		sourceColumn: match_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: d7930cc8-2261-46d7-86bc-19fd919558e2
+		summarizeBy: none
+		sourceColumn: date
+
+		variation Variation
+			isDefault
+			relationship: 610ba9e3-f0f4-4a16-a55f-ddf3e54ba8fa
+			defaultHierarchy: LocalDateTable_b7832c73-c6ac-40f6-854d-4d3c60acb2ad.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column kickoff_time_utc
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 1a376827-d5c5-4b4b-91ae-345a2e4d69f9
+		summarizeBy: none
+		sourceColumn: kickoff_time_utc
+
+		variation Variation
+			isDefault
+			relationship: c10ca0db-48a6-4f9c-a781-2b7917a7ad0d
+			defaultHierarchy: LocalDateTable_b95570d7-d2e9-4442-95b9-0120b68f00aa.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column stage_id
+		dataType: int64
+		formatString: 0
+		lineageTag: ab6b7945-18ad-4325-a57e-371c1d378354
+		summarizeBy: sum
+		sourceColumn: stage_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column venue_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 54acf124-97fa-48d1-a019-ef5603c35180
+		summarizeBy: sum
+		sourceColumn: venue_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column home_team_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 8297ebba-44d7-4146-b666-28fe537d44ed
+		summarizeBy: sum
+		sourceColumn: home_team_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column away_team_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 10dd5b9d-b134-430d-99f1-269b0508aa34
+		summarizeBy: sum
+		sourceColumn: away_team_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column home_score
+		dataType: int64
+		formatString: 0
+		lineageTag: 8013b69b-8b20-4632-aa2d-9021e4b03772
+		summarizeBy: sum
+		sourceColumn: home_score
+
+		annotation SummarizationSetBy = Automatic
+
+	column away_score
+		dataType: int64
+		formatString: 0
+		lineageTag: 57d091ca-3f4d-404d-8c08-2aebcf9687b1
+		summarizeBy: sum
+		sourceColumn: away_score
+
+		annotation SummarizationSetBy = Automatic
+
+	column home_xg
+		dataType: double
+		lineageTag: fcdd1c69-9037-4781-bb9b-195376ab0a2a
+		summarizeBy: sum
+		sourceColumn: home_xg
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column away_xg
+		dataType: double
+		lineageTag: e1084839-a807-4b1a-b5ab-a60e6fe127f1
+		summarizeBy: sum
+		sourceColumn: away_xg
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column referee_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 3a9b5b84-4dd9-4e70-bfa1-b7292966c6e7
+		summarizeBy: sum
+		sourceColumn: referee_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column status
+		dataType: string
+		lineageTag: 90729687-2def-4a96-8e34-d27e60be183a
+		summarizeBy: none
+		sourceColumn: status
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ft_partidas = m
+		mode: import
+		source =
+				let
+				    Fonte = DatabricksMultiCloud.Catalogs("dbc-151defb8-8e14.cloud.databricks.com", "/sql/1.0/warehouses/36661ad2fa1e9792", [Catalog=null, Database=null, QueryTags=null, EnableAutomaticProxyDiscovery=null, Implementation="2.0", Protocol=null]),
+				    fifa_world_cup_2026_Database = Fonte{[Name="fifa_world_cup_2026",Kind="Database"]}[Data],
+				    gold_Schema = fifa_world_cup_2026_Database{[Name="gold",Kind="Schema"]}[Data],
+				    ft_partidas_View = gold_Schema{[Name="ft_partidas",Kind="View"]}[Data]
+				in
+				    ft_partidas_View
+

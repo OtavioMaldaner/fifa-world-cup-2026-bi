@@ -1,0 +1,141 @@
+table vw_pontos_recuperados
+	lineageTag: a5a01176-d18a-430b-b075-96b19e0bb2e8
+
+	column match_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 4d5f33e6-fcdf-45aa-b6a9-47d275a0727e
+		summarizeBy: sum
+		sourceColumn: match_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column match_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 562ee74e-61ea-49fc-bf44-74999c847ea5
+		summarizeBy: none
+		sourceColumn: match_date
+
+		variation Variation
+			isDefault
+			relationship: 701157b5-f420-4d96-a51b-6c2e1b58d605
+			defaultHierarchy: LocalDateTable_e62b1ceb-f6ce-478f-abbe-961dbaaecce6.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column kickoff_time_utc
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: abee68a1-a885-46bc-be40-b9ced52181e0
+		summarizeBy: none
+		sourceColumn: kickoff_time_utc
+
+		variation Variation
+			isDefault
+			relationship: cce1fdb3-41fb-4f5e-97ce-227f145a7850
+			defaultHierarchy: LocalDateTable_74965fb4-82a1-4e74-8791-aaa269062309.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column stage_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 639a8f2e-1013-487c-b845-78fe39d96948
+		summarizeBy: none
+		sourceColumn: stage_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column team_id
+		dataType: int64
+		formatString: 0
+		lineageTag: ab317c96-6f31-4818-b19e-bd99c273fb58
+		summarizeBy: none
+		sourceColumn: team_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column team_name
+		dataType: string
+		lineageTag: 66f46462-0ee7-46ac-9293-8a2b11689a41
+		summarizeBy: none
+		sourceColumn: team_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column opponent_team_id
+		dataType: int64
+		formatString: 0
+		lineageTag: b8207f9b-73f2-4aef-bdbd-36bb7f74bc21
+		summarizeBy: sum
+		sourceColumn: opponent_team_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column opponent_name
+		dataType: string
+		lineageTag: 9f98f7e1-f4cb-4f3c-8733-1d627ec88473
+		summarizeBy: none
+		sourceColumn: opponent_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column goals_for
+		dataType: int64
+		formatString: 0
+		lineageTag: 0e08f393-1d8d-4e1d-8257-db7f3cc7a51b
+		summarizeBy: sum
+		sourceColumn: goals_for
+
+		annotation SummarizationSetBy = Automatic
+
+	column goals_against
+		dataType: int64
+		formatString: 0
+		lineageTag: b2363bbf-ac4f-4b04-bed6-b1f8b672d415
+		summarizeBy: sum
+		sourceColumn: goals_against
+
+		annotation SummarizationSetBy = Automatic
+
+	column actual_points
+		dataType: int64
+		formatString: 0
+		lineageTag: 979d6cae-de47-4420-a8e4-32f4c3402c0a
+		summarizeBy: sum
+		sourceColumn: actual_points
+
+		annotation SummarizationSetBy = Automatic
+
+	column was_behind
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: d8d78ce3-7733-4efb-a25d-e548dd48d1f0
+		summarizeBy: none
+		sourceColumn: was_behind
+
+		annotation SummarizationSetBy = Automatic
+
+	column recovered_points
+		dataType: int64
+		formatString: 0
+		lineageTag: 539bf672-27ae-4425-bc59-ff7840bd27ff
+		summarizeBy: sum
+		sourceColumn: recovered_points
+
+		annotation SummarizationSetBy = Automatic
+
+	partition vw_pontos_recuperados = m
+		mode: import
+		source =
+				let
+				    Fonte = DatabricksMultiCloud.Catalogs("dbc-151defb8-8e14.cloud.databricks.com", "/sql/1.0/warehouses/36661ad2fa1e9792", [Catalog=null, Database=null, QueryTags=null, EnableAutomaticProxyDiscovery=null, Implementation="2.0", Protocol=null]),
+				    fifa_world_cup_2026_Database = Fonte{[Name="fifa_world_cup_2026",Kind="Database"]}[Data],
+				    gold_Schema = fifa_world_cup_2026_Database{[Name="gold",Kind="Schema"]}[Data],
+				    vw_pontos_recuperados_View = gold_Schema{[Name="vw_pontos_recuperados",Kind="View"]}[Data]
+				in
+				    vw_pontos_recuperados_View
+

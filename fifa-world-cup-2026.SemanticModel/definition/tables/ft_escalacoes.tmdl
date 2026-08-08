@@ -1,0 +1,76 @@
+table ft_escalacoes
+	lineageTag: 70e18f63-e4c8-4f69-a8e8-c46bc180db83
+
+	column lineup_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 261bf324-e4a9-44ee-8a18-3057f8150103
+		summarizeBy: sum
+		sourceColumn: lineup_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column match_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 101f5dcc-d841-4a7c-af64-a41eceb974ab
+		summarizeBy: none
+		sourceColumn: match_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column player_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 24501203-1e9e-47b3-85bf-e7011e27f944
+		summarizeBy: none
+		sourceColumn: player_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column team_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 5359d87b-79a8-4cca-add1-58dd633f07f8
+		summarizeBy: none
+		sourceColumn: team_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_starting_xi
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 2c95cd1d-de02-4c67-bf2c-6c7ba0e7210b
+		summarizeBy: none
+		sourceColumn: is_starting_xi
+
+		annotation SummarizationSetBy = Automatic
+
+	column tactical_position
+		dataType: string
+		lineageTag: d77b6962-f812-4636-a9c6-c629c391b058
+		summarizeBy: none
+		sourceColumn: tactical_position
+
+		annotation SummarizationSetBy = Automatic
+
+	column minutes_played
+		dataType: int64
+		formatString: 0
+		lineageTag: 87c56827-f3a6-41c8-b5de-e9d42c7063c7
+		summarizeBy: sum
+		sourceColumn: minutes_played
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ft_escalacoes = m
+		mode: import
+		source =
+				let
+				    Fonte = DatabricksMultiCloud.Catalogs("dbc-151defb8-8e14.cloud.databricks.com", "/sql/1.0/warehouses/36661ad2fa1e9792", [Catalog=null, Database=null, QueryTags=null, EnableAutomaticProxyDiscovery=null, Implementation="2.0", Protocol=null]),
+				    fifa_world_cup_2026_Database = Fonte{[Name="fifa_world_cup_2026",Kind="Database"]}[Data],
+				    gold_Schema = fifa_world_cup_2026_Database{[Name="gold",Kind="Schema"]}[Data],
+				    ft_escalacoes_View = gold_Schema{[Name="ft_escalacoes",Kind="View"]}[Data]
+				in
+				    ft_escalacoes_View
+

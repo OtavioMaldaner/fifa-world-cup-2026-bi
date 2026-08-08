@@ -1,0 +1,40 @@
+table dim_etapas
+	lineageTag: 07796e80-570c-4fb6-8eb5-1e82210249b0
+
+	column stage_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 84397470-8374-4e95-a550-05f78d4512b5
+		summarizeBy: none
+		sourceColumn: stage_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column stage_name
+		dataType: string
+		lineageTag: e4e7c4e2-43ee-4e4a-a9a3-73823332f256
+		summarizeBy: none
+		sourceColumn: stage_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_knockout
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 8f2907ad-27e9-4267-aabf-644435503241
+		summarizeBy: none
+		sourceColumn: is_knockout
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_etapas = m
+		mode: import
+		source =
+				let
+				    Fonte = DatabricksMultiCloud.Catalogs("dbc-151defb8-8e14.cloud.databricks.com", "/sql/1.0/warehouses/36661ad2fa1e9792", [Catalog=null, Database=null, QueryTags=null, EnableAutomaticProxyDiscovery=null, Implementation="2.0", Protocol=null]),
+				    fifa_world_cup_2026_Database = Fonte{[Name="fifa_world_cup_2026",Kind="Database"]}[Data],
+				    gold_Schema = fifa_world_cup_2026_Database{[Name="gold",Kind="Schema"]}[Data],
+				    dim_etapas_View = gold_Schema{[Name="dim_etapas",Kind="View"]}[Data]
+				in
+				    dim_etapas_View
+

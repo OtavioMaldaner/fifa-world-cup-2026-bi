@@ -1,0 +1,211 @@
+table vw_selecao_partida
+	lineageTag: 80d55cbf-d14a-4bff-a044-a825e3a804b0
+
+	column match_id
+		dataType: int64
+		formatString: 0
+		lineageTag: d49c049c-c93c-4b67-a6b2-d95252f6e290
+		summarizeBy: none
+		sourceColumn: match_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column match_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 2fbbeeed-be57-4d11-84a6-ca18ca542fea
+		summarizeBy: none
+		sourceColumn: match_date
+
+		variation Variation
+			isDefault
+			relationship: 1fc2a0d5-8035-420c-adaf-8a5246dc7514
+			defaultHierarchy: LocalDateTable_f6dc5d06-5aa9-479e-93d8-bec8e68d4462.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column kickoff_time_utc
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 0c047ecf-a2d4-46c7-b143-937506248a0c
+		summarizeBy: none
+		sourceColumn: kickoff_time_utc
+
+		variation Variation
+			isDefault
+			relationship: 466fb02f-c428-4ad6-abe1-6b8f7306edcd
+			defaultHierarchy: LocalDateTable_0d324503-c34f-4524-acc5-28b1afab3dae.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column stage_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 94ab4ec8-d6d7-4ab8-93a9-40ff6f015b5f
+		summarizeBy: none
+		sourceColumn: stage_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column venue_id
+		dataType: int64
+		formatString: 0
+		lineageTag: ab9120ba-2e00-4cf4-9813-e53b9f1c25e8
+		summarizeBy: none
+		sourceColumn: venue_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column referee_id
+		dataType: int64
+		formatString: 0
+		lineageTag: cdbba9e9-4d57-4d98-8bd3-466fd11409cb
+		summarizeBy: none
+		sourceColumn: referee_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column team_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 913b6bc4-da2d-4bc0-8dea-069709d2525c
+		summarizeBy: none
+		sourceColumn: team_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column team_name
+		dataType: string
+		lineageTag: 23a0194e-42d6-49fd-8446-b6cd4afa3ca1
+		summarizeBy: none
+		sourceColumn: team_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column fifa_code
+		dataType: string
+		lineageTag: 5c7c4b09-c8a9-48d4-8504-e4db8a9afe6e
+		summarizeBy: none
+		sourceColumn: fifa_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column team_rank
+		dataType: int64
+		formatString: 0
+		lineageTag: 7bb94873-4aea-414b-a0ac-bfdb6a2273f7
+		summarizeBy: sum
+		sourceColumn: team_rank
+
+		annotation SummarizationSetBy = Automatic
+
+	column opponent_team_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 26e55d84-cb3b-4e16-98d0-a2487d06abe2
+		summarizeBy: sum
+		sourceColumn: opponent_team_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column opponent_name
+		dataType: string
+		lineageTag: eb3c03bc-8c77-4b72-b515-41a608f164f7
+		summarizeBy: none
+		sourceColumn: opponent_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column opponent_fifa_code
+		dataType: string
+		lineageTag: b76bcf9f-d6c2-45df-b774-bda20fa9dbfc
+		summarizeBy: none
+		sourceColumn: opponent_fifa_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column opponent_rank
+		dataType: int64
+		formatString: 0
+		lineageTag: 707134d2-4333-4f67-b74c-e292a4010b32
+		summarizeBy: sum
+		sourceColumn: opponent_rank
+
+		annotation SummarizationSetBy = Automatic
+
+	column goals_for
+		dataType: int64
+		formatString: 0
+		lineageTag: f2a52a56-b8f2-40b0-8ad3-98bfdd3d68a8
+		summarizeBy: sum
+		sourceColumn: goals_for
+
+		annotation SummarizationSetBy = Automatic
+
+	column goals_against
+		dataType: int64
+		formatString: 0
+		lineageTag: 8620db6b-ba9b-4f3b-9513-46fc19e71e6f
+		summarizeBy: sum
+		sourceColumn: goals_against
+
+		annotation SummarizationSetBy = Automatic
+
+	column xg_for
+		dataType: double
+		lineageTag: c89fdbda-2f9f-444c-8e1c-ecd2e9533f18
+		summarizeBy: sum
+		sourceColumn: xg_for
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column xg_against
+		dataType: double
+		lineageTag: 378ce18f-13b1-44d4-bba2-2b48a58617b6
+		summarizeBy: sum
+		sourceColumn: xg_against
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column points
+		dataType: int64
+		formatString: 0
+		lineageTag: 5203eb8d-b906-4e44-8042-3419281b5778
+		summarizeBy: sum
+		sourceColumn: points
+
+		annotation SummarizationSetBy = Automatic
+
+	column result
+		dataType: string
+		lineageTag: 72821297-1f23-4d87-b72e-8dc8ccf3d194
+		summarizeBy: none
+		sourceColumn: result
+
+		annotation SummarizationSetBy = Automatic
+
+	column team_role
+		dataType: string
+		lineageTag: f8c734a0-f20a-4d74-ade3-93b718a37eef
+		summarizeBy: none
+		sourceColumn: team_role
+
+		annotation SummarizationSetBy = Automatic
+
+	partition vw_selecao_partida = m
+		mode: import
+		source =
+				let
+				    Fonte = DatabricksMultiCloud.Catalogs("dbc-151defb8-8e14.cloud.databricks.com", "/sql/1.0/warehouses/36661ad2fa1e9792", [Catalog=null, Database=null, QueryTags=null, EnableAutomaticProxyDiscovery=null, Implementation="2.0", Protocol=null]),
+				    fifa_world_cup_2026_Database = Fonte{[Name="fifa_world_cup_2026",Kind="Database"]}[Data],
+				    gold_Schema = fifa_world_cup_2026_Database{[Name="gold",Kind="Schema"]}[Data],
+				    vw_selecao_partida_View = gold_Schema{[Name="vw_selecao_partida",Kind="View"]}[Data]
+				in
+				    vw_selecao_partida_View
+

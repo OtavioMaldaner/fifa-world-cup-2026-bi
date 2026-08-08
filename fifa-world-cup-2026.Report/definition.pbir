@@ -1,0 +1,8 @@
+{
+  "version": "4.0",
+  "datasetReference": {
+    "byPath": {
+      "path": "../fifa-world-cup-2026.SemanticModel"
+    }
+  }
+}

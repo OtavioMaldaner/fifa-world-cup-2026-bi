@@ -1,0 +1,128 @@
+table ft_estatisticas_equipe
+	lineageTag: b729f387-b16d-4e71-99ae-60d01fdaabb3
+
+	column match_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 57738e95-1d2f-4055-abdf-eca48ee7c5b7
+		summarizeBy: none
+		sourceColumn: match_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column team_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 4fe180f5-44c8-4d67-811f-4237a2e77a0a
+		summarizeBy: none
+		sourceColumn: team_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column possession_pct
+		dataType: double
+		lineageTag: 44a609b5-7cc6-4464-a9f1-c2b25a7aebe6
+		summarizeBy: sum
+		sourceColumn: possession_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_shots
+		dataType: int64
+		formatString: 0
+		lineageTag: 42b17551-8897-4fb0-8f72-7c8852201e83
+		summarizeBy: sum
+		sourceColumn: total_shots
+
+		annotation SummarizationSetBy = Automatic
+
+	column shots_on_target
+		dataType: int64
+		formatString: 0
+		lineageTag: ed7e3da8-12f3-4062-ac56-f536cb7e994b
+		summarizeBy: sum
+		sourceColumn: shots_on_target
+
+		annotation SummarizationSetBy = Automatic
+
+	column corners
+		dataType: int64
+		formatString: 0
+		lineageTag: 82a5e7f9-7151-42dc-b73d-0682ba93036e
+		summarizeBy: sum
+		sourceColumn: corners
+
+		annotation SummarizationSetBy = Automatic
+
+	column fouls
+		dataType: int64
+		formatString: 0
+		lineageTag: d54357b5-1547-4e05-ab2d-fc361983fde1
+		summarizeBy: sum
+		sourceColumn: fouls
+
+		annotation SummarizationSetBy = Automatic
+
+	column offsides
+		dataType: int64
+		formatString: 0
+		lineageTag: 903e6dbb-3b91-4775-80d3-9a293ee1232b
+		summarizeBy: sum
+		sourceColumn: offsides
+
+		annotation SummarizationSetBy = Automatic
+
+	column saves
+		dataType: int64
+		formatString: 0
+		lineageTag: 2fcb9e8c-0d2f-48b7-9903-5f5d04458836
+		summarizeBy: sum
+		sourceColumn: saves
+
+		annotation SummarizationSetBy = Automatic
+
+	column player_of_the_match
+		dataType: string
+		lineageTag: d50d4c41-7c6e-4df1-8792-1be34b4620c9
+		summarizeBy: none
+		sourceColumn: player_of_the_match
+
+		annotation SummarizationSetBy = Automatic
+
+	column data_source
+		dataType: string
+		lineageTag: 8c154c3f-74c6-4775-9c37-f7dc1d98ec43
+		summarizeBy: none
+		sourceColumn: data_source
+
+		annotation SummarizationSetBy = Automatic
+
+	column last_updated
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 96c07ea4-030c-4369-82e2-10cdcb035fc0
+		summarizeBy: none
+		sourceColumn: last_updated
+
+		variation Variation
+			isDefault
+			relationship: f50922a2-8cb0-44a1-8621-68dff45504b5
+			defaultHierarchy: LocalDateTable_6b8ed32c-1356-401a-9638-b5ddb55bcd71.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition ft_estatisticas_equipe = m
+		mode: import
+		source =
+				let
+				    Fonte = DatabricksMultiCloud.Catalogs("dbc-151defb8-8e14.cloud.databricks.com", "/sql/1.0/warehouses/36661ad2fa1e9792", [Catalog=null, Database=null, QueryTags=null, EnableAutomaticProxyDiscovery=null, Implementation="2.0", Protocol=null]),
+				    fifa_world_cup_2026_Database = Fonte{[Name="fifa_world_cup_2026",Kind="Database"]}[Data],
+				    gold_Schema = fifa_world_cup_2026_Database{[Name="gold",Kind="Schema"]}[Data],
+				    ft_estatisticas_equipe_View = gold_Schema{[Name="ft_estatisticas_equipe",Kind="View"]}[Data]
+				in
+				    ft_estatisticas_equipe_View
+

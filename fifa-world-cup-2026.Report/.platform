@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "fifa-world-cup-2026"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "a704d243-0b79-4a1d-a422-55c101aa77ca"
+  }
+}

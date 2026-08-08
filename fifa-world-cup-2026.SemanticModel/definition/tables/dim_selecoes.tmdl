@@ -1,0 +1,64 @@
+table dim_selecoes
+	lineageTag: 077c7dbe-3f9f-48f1-85bd-351857282888
+
+	column team_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 139479b8-323e-4c7d-abf9-0d0686e0d9b6
+		summarizeBy: none
+		sourceColumn: team_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column team_name
+		dataType: string
+		lineageTag: f95803d4-88b9-4c10-9d86-63d3b72a113b
+		summarizeBy: none
+		sourceColumn: team_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column fifa_code
+		dataType: string
+		lineageTag: b452a584-d6dd-42e1-ba33-b71684d36117
+		summarizeBy: none
+		sourceColumn: fifa_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column group_letter
+		dataType: string
+		lineageTag: c988d20a-3007-4334-b8b6-d983fad8ceff
+		summarizeBy: none
+		sourceColumn: group_letter
+
+		annotation SummarizationSetBy = Automatic
+
+	column confederation
+		dataType: string
+		lineageTag: 07ce0917-ddd4-4121-9e21-f72c9de9ae9c
+		summarizeBy: none
+		sourceColumn: confederation
+
+		annotation SummarizationSetBy = Automatic
+
+	column fifa_ranking_pre_tournament
+		dataType: int64
+		formatString: 0
+		lineageTag: 09fe4efc-2cb0-4e29-8d0b-d05a02aee8f1
+		summarizeBy: sum
+		sourceColumn: fifa_ranking_pre_tournament
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_selecoes = m
+		mode: import
+		source =
+				let
+				    Fonte = DatabricksMultiCloud.Catalogs("dbc-151defb8-8e14.cloud.databricks.com", "/sql/1.0/warehouses/36661ad2fa1e9792", [Catalog=null, Database=null, QueryTags=null, EnableAutomaticProxyDiscovery=null, Implementation="2.0", Protocol=null]),
+				    fifa_world_cup_2026_Database = Fonte{[Name="fifa_world_cup_2026",Kind="Database"]}[Data],
+				    gold_Schema = fifa_world_cup_2026_Database{[Name="gold",Kind="Schema"]}[Data],
+				    dim_selecoes_View = gold_Schema{[Name="dim_selecoes",Kind="View"]}[Data]
+				in
+				    dim_selecoes_View
+

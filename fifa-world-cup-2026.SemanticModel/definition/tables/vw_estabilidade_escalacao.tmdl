@@ -1,0 +1,149 @@
+table vw_estabilidade_escalacao
+	lineageTag: 434987a8-0ec7-4557-80ee-91e78598f0bd
+
+	column team_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 9b1df8dd-4531-406d-9fc1-961a5758ef89
+		summarizeBy: none
+		sourceColumn: team_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column team_name
+		dataType: string
+		lineageTag: 33691615-cee5-461f-8aa7-3dfe729378e6
+		summarizeBy: none
+		sourceColumn: team_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column match_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 91fa8842-4dfa-4f6b-92d6-b0b680b69d0c
+		summarizeBy: none
+		sourceColumn: match_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column previous_match_id
+		dataType: int64
+		formatString: 0
+		lineageTag: e4e60fae-da2b-4c3d-9d84-439e74ab56e9
+		summarizeBy: sum
+		sourceColumn: previous_match_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column match_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 945f22e7-d7e1-46d9-b673-759fc192d5fe
+		summarizeBy: none
+		sourceColumn: match_date
+
+		variation Variation
+			isDefault
+			relationship: b54241c9-f1ff-4dee-a06c-67aa6f5e197a
+			defaultHierarchy: LocalDateTable_b86e0c8e-7aa2-4741-b584-6bf52904df4f.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column kickoff_time_utc
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f9f96d09-9cb9-4c3e-94ab-b4699c2f99f1
+		summarizeBy: none
+		sourceColumn: kickoff_time_utc
+
+		variation Variation
+			isDefault
+			relationship: 74778542-06af-4e88-a128-532ce624aed3
+			defaultHierarchy: LocalDateTable_12f77402-86e6-4d72-9d12-02eff9393790.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column stage_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 08067966-f4f0-4305-8504-8e83bd82989f
+		summarizeBy: none
+		sourceColumn: stage_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column opponent_team_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 1437f47c-1a1c-4a19-8476-ab7c261dde39
+		summarizeBy: sum
+		sourceColumn: opponent_team_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column opponent_name
+		dataType: string
+		lineageTag: 05275a59-eeb0-4784-9bac-024b9230b9bf
+		summarizeBy: none
+		sourceColumn: opponent_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column starting_players
+		dataType: string
+		lineageTag: b1129570-db73-45d8-b0ac-60d8944b8f62
+		summarizeBy: none
+		sourceColumn: starting_players
+
+		annotation SummarizationSetBy = Automatic
+
+	column previous_starting_players
+		dataType: string
+		lineageTag: d228ec98-c477-47be-ab10-e31c52bef85b
+		summarizeBy: none
+		sourceColumn: previous_starting_players
+
+		annotation SummarizationSetBy = Automatic
+
+	column starting_xi_count
+		dataType: int64
+		formatString: 0
+		lineageTag: b818d157-473b-408d-b50b-eb9050aea210
+		summarizeBy: sum
+		sourceColumn: starting_xi_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column repeated_starters
+		dataType: int64
+		formatString: 0
+		lineageTag: c75f92e4-63de-4451-9baa-6e8dd7547fc7
+		summarizeBy: sum
+		sourceColumn: repeated_starters
+
+		annotation SummarizationSetBy = Automatic
+
+	column lineup_stability_pct
+		dataType: double
+		lineageTag: 57d8ce08-0b71-4c99-9c72-e7765a6266ed
+		summarizeBy: sum
+		sourceColumn: lineup_stability_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition vw_estabilidade_escalacao = m
+		mode: import
+		source =
+				let
+				    Fonte = DatabricksMultiCloud.Catalogs("dbc-151defb8-8e14.cloud.databricks.com", "/sql/1.0/warehouses/36661ad2fa1e9792", [Catalog=null, Database=null, QueryTags=null, EnableAutomaticProxyDiscovery=null, Implementation="2.0", Protocol=null]),
+				    fifa_world_cup_2026_Database = Fonte{[Name="fifa_world_cup_2026",Kind="Database"]}[Data],
+				    gold_Schema = fifa_world_cup_2026_Database{[Name="gold",Kind="Schema"]}[Data],
+				    vw_estabilidade_escalacao_View = gold_Schema{[Name="vw_estabilidade_escalacao",Kind="View"]}[Data]
+				in
+				    vw_estabilidade_escalacao_View
+

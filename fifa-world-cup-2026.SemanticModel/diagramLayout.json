@@ -1,0 +1,204 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 681.69577960142692,
+            "y": 30.849374839912571
+          },
+          "nodeIndex": "dim_estadios",
+          "nodeLineageTag": "956c40c0-2902-40a7-8e5d-6814bde26503",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 73.142849610990424,
+            "y": 1188.2383749333812
+          },
+          "nodeIndex": "dim_etapas",
+          "nodeLineageTag": "b5a28da8-dc68-42c1-9e74-55c09799d5fb",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 1594.1262053784574,
+            "y": 773.76099935634613
+          },
+          "nodeIndex": "dim_jogadores",
+          "nodeLineageTag": "c95cbcfd-b0cf-41d0-ae13-b7473e524ad2",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 924.77346945536851,
+            "y": 795.20972755353375
+          },
+          "nodeIndex": "dim_selecoes",
+          "nodeLineageTag": "df9ffdce-bc99-4a27-ba62-fdbe0af9eb2d",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 901.29526057857834,
+            "y": 290.17505984441345
+          },
+          "nodeIndex": "ft_partidas",
+          "nodeLineageTag": "9798a0d6-610a-45c4-8ac9-af845d55b0fb",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 609.56742109100628,
+            "y": 621.30519440625869
+          },
+          "nodeIndex": "dim_arbitros",
+          "nodeLineageTag": "954267dd-2a3e-4a59-8982-b4c36072064a",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1304.4322286705949,
+            "y": 488.65642767195664
+          },
+          "nodeIndex": "ft_escalacoes",
+          "nodeLineageTag": "70e18f63-e4c8-4f69-a8e8-c46bc180db83",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1194.0185632603543,
+            "y": -50
+          },
+          "nodeIndex": "ft_estatisticas_equipe",
+          "nodeLineageTag": "b729f387-b16d-4e71-99ae-60d01fdaabb3",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1206.845111526527,
+            "y": 1119.4402996299384
+          },
+          "nodeIndex": "ft_estatisticas_jogador",
+          "nodeLineageTag": "a99e05b4-f348-42f4-a2aa-101205de16d4",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1216.5552165707777,
+            "y": 795.17214105123969
+          },
+          "nodeIndex": "ft_eventos",
+          "nodeLineageTag": "bb49a217-fcc4-4cfc-9c38-a057198c5db9",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 339.12161172236608,
+            "y": 829.77051183647313
+          },
+          "nodeIndex": "vw_estabilidade_escalacao",
+          "nodeLineageTag": "434987a8-0ec7-4557-80ee-91e78598f0bd",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 918.0035150225292,
+            "y": 1164.8330506122657
+          },
+          "nodeIndex": "vw_pontos_recuperados",
+          "nodeLineageTag": "a5a01176-d18a-430b-b075-96b19e0bb2e8",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 50,
+            "y": 469.0452010027492
+          },
+          "nodeIndex": "vw_selecao_partida",
+          "nodeLineageTag": "80d55cbf-d14a-4bff-a044-a825e3a804b0",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 631.97502909535388,
+            "y": 1022.1217008055262
+          },
+          "nodeIndex": "vw_xpts_selecao_partida",
+          "nodeLineageTag": "dc4de28a-cbc8-44fa-b89d-c4ee3a05bbc7",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Todas as tabelas",
+      "zoomValue": 50.221909917716175,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Todas as tabelas",
+  "defaultDiagram": "Todas as tabelas"
+}

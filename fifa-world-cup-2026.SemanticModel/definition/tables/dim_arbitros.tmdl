@@ -1,0 +1,43 @@
+table dim_arbitros
+	lineageTag: 954267dd-2a3e-4a59-8982-b4c36072064a
+
+	column referee_id
+		dataType: int64
+		formatString: 0
+		lineageTag: ad9582ac-178c-4ff2-ae8b-41ab8314ad23
+		summarizeBy: none
+		sourceColumn: referee_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column referee_name
+		dataType: string
+		lineageTag: 9c91c812-addf-4472-b188-b2bd082e0516
+		summarizeBy: none
+		sourceColumn: referee_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column country
+		dataType: string
+		lineageTag: 0cf7a6f1-d7ca-4501-b082-f071bdbc538b
+		summarizeBy: none
+		sourceColumn: country
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_arbitros = m
+		mode: import
+		source =
+				let
+				    Fonte = DatabricksMultiCloud.Catalogs("dbc-151defb8-8e14.cloud.databricks.com", "/sql/1.0/warehouses/36661ad2fa1e9792", [Catalog=null, Database=null, QueryTags=null, EnableAutomaticProxyDiscovery=null, Implementation="2.0", Protocol=null]),
+				    fifa_world_cup_2026_Database = Fonte{[Name="fifa_world_cup_2026",Kind="Database"]}[Data],
+				    gold_Schema = fifa_world_cup_2026_Database{[Name="gold",Kind="Schema"]}[Data],
+				    dim_arbitros_View = gold_Schema{[Name="dim_arbitros",Kind="View"]}[Data]
+				in
+				    dim_arbitros_View
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

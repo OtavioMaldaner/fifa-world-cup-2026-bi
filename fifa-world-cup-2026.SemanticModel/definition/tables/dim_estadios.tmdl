@@ -1,0 +1,56 @@
+table dim_estadios
+	lineageTag: 55197ba8-9125-4536-b18d-58767a7ddebb
+
+	column venue_id
+		dataType: int64
+		formatString: 0
+		lineageTag: e8c13fbc-783f-4d8f-9147-00b28af3b26a
+		summarizeBy: none
+		sourceColumn: venue_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column stadium_name
+		dataType: string
+		lineageTag: 2d35b7b2-8aac-4840-b129-3d5f948e4035
+		summarizeBy: none
+		sourceColumn: stadium_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column city
+		dataType: string
+		lineageTag: 039621f7-af57-443a-9ac0-fc89d11aa8f1
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column country
+		dataType: string
+		lineageTag: ee6ace45-d2bf-4703-89a2-8ad1f236c499
+		summarizeBy: none
+		sourceColumn: country
+
+		annotation SummarizationSetBy = Automatic
+
+	column capacity
+		dataType: int64
+		formatString: 0
+		lineageTag: 181f32f2-2ed5-45b4-ac38-6af177619f3e
+		summarizeBy: none
+		sourceColumn: capacity
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_estadios = m
+		mode: import
+		source =
+				let
+				    Fonte = DatabricksMultiCloud.Catalogs("dbc-151defb8-8e14.cloud.databricks.com", "/sql/1.0/warehouses/36661ad2fa1e9792", [Catalog=null, Database=null, QueryTags=null, EnableAutomaticProxyDiscovery=null, Implementation="2.0", Protocol=null]),
+				    fifa_world_cup_2026_Database = Fonte{[Name="fifa_world_cup_2026",Kind="Database"]}[Data],
+				    gold_Schema = fifa_world_cup_2026_Database{[Name="gold",Kind="Schema"]}[Data],
+				    dim_estadios_View = gold_Schema{[Name="dim_estadios",Kind="View"]}[Data]
+				in
+				    dim_estadios_View
+

@@ -1,0 +1,67 @@
+table ft_eventos
+	lineageTag: bb49a217-fcc4-4cfc-9c38-a057198c5db9
+
+	column event_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 120c667b-bed3-4a21-8480-bfa6e3a5a40e
+		summarizeBy: sum
+		sourceColumn: event_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column match_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 883ae4ff-485a-430d-a073-b0f22fef232c
+		summarizeBy: none
+		sourceColumn: match_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column minute
+		dataType: int64
+		formatString: 0
+		lineageTag: c6de7e3b-d51f-49f6-a57c-6a7633ba038b
+		summarizeBy: sum
+		sourceColumn: minute
+
+		annotation SummarizationSetBy = Automatic
+
+	column event_type
+		dataType: string
+		lineageTag: fded5edb-f011-4697-812f-b85911809801
+		summarizeBy: none
+		sourceColumn: event_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column team_id
+		dataType: int64
+		formatString: 0
+		lineageTag: bdba47dd-1072-4688-9217-91ce4b949f14
+		summarizeBy: none
+		sourceColumn: team_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column player_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 9ea1fc7e-2d19-44a8-910a-ea5c1332b645
+		summarizeBy: none
+		sourceColumn: player_id
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ft_eventos = m
+		mode: import
+		source =
+				let
+				    Fonte = DatabricksMultiCloud.Catalogs("dbc-151defb8-8e14.cloud.databricks.com", "/sql/1.0/warehouses/36661ad2fa1e9792", [Catalog=null, Database=null, QueryTags=null, EnableAutomaticProxyDiscovery=null, Implementation="2.0", Protocol=null]),
+				    fifa_world_cup_2026_Database = Fonte{[Name="fifa_world_cup_2026",Kind="Database"]}[Data],
+				    gold_Schema = fifa_world_cup_2026_Database{[Name="gold",Kind="Schema"]}[Data],
+				    ft_eventos_View = gold_Schema{[Name="ft_eventos",Kind="View"]}[Data]
+				in
+				    ft_eventos_View
+
