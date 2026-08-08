@@ -587,7 +587,7 @@ EOF
 **Interfaces:**
 - Produces: `IFRS_Feliz.json`, referenced by name in Task 6's `report.json` edit and validated by the color-grep gate in Task 12.
 
-- [ ] **Step 1: Write the theme-transform script**
+- [x] **Step 1: Write the theme-transform script**
 
 Every hex color's exact JSON path in the source theme was mapped before writing this plan (`visualStyles.*` wildcard walk). The transform: rename, truncate `dataColors` to the 7 curated greens, remap every blue/navy hex to its green equivalent, leave the `kpi` bad-status red untouched (legitimate semantic color, not a brand color), fix the white-on-white `filterCard` bug, disable `dropShadow`, delete the Tramontina icons.
 
@@ -651,7 +651,7 @@ DST.write_text(json.dumps(theme, ensure_ascii=False, indent=2))
 print(f"Wrote {DST} ({DST.stat().st_size:,} bytes, source was {SRC.stat().st_size:,} bytes)")
 ```
 
-- [ ] **Step 2: Run it**
+- [x] **Step 2: Run it**
 
 ```bash
 cd "BI - Semana da Informática"
@@ -660,7 +660,7 @@ python3 /tmp/build_theme.py
 
 Expected: a size reduction of well over 100 KB (the source is 161 KB, dominated by base64 icon data that Step 1 deletes).
 
-- [ ] **Step 3: Verify the transform**
+- [x] **Step 3: Verify the transform**
 
 ```bash
 cd "fifa-world-cup-2026.Report/StaticResources/RegisteredResources"
@@ -681,7 +681,7 @@ print('All checks passed.')
 cd ../../../..
 ```
 
-- [ ] **Step 4: Color grep gate (agent gate, early check)**
+- [x] **Step 4: Color grep gate (agent gate, early check)**
 
 ```bash
 grep -oE '#[0-9A-Fa-f]{6}' "fifa-world-cup-2026.Report/StaticResources/RegisteredResources/IFRS_Feliz.json" | sort -u
@@ -689,7 +689,7 @@ grep -oE '#[0-9A-Fa-f]{6}' "fifa-world-cup-2026.Report/StaticResources/Registere
 
 Every hex printed here should be one you recognize from the palette or an intentionally-preserved neutral/semantic color (`#000000`, `#333333`, `#666666`, `#6A6A6A`, `#C8C6C4`, `#D0D0D0`, `#E6E6E6`, `#E7E7E7`, `#EEEEEE`, `#F3F3F3`, `#F4F4F4`, `#FFFFFF`, `#D64554`). If an unfamiliar hex appears, the remap missed a path — go back to Step 1.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 cd "BI - Semana da Informática"
@@ -720,7 +720,7 @@ EOF
 - Consumes: `IFRS_Feliz.json` from Task 5.
 - Produces: a report whose only custom theme is IFRS Feliz — required before Task 12's color-grep gate can mean anything (a visual could otherwise still cite the old theme's colors by name).
 
-- [ ] **Step 1: Replace the `customTheme` and `resourcePackages` entries**
+- [x] **Step 1: Replace the `customTheme` and `resourcePackages` entries**
 
 In `report.json`, change:
 
@@ -760,14 +760,14 @@ to:
 
 Use `pbir get "fifa-world-cup-2026.Report"` first to confirm the live property path (installed in Task 7 — if Task 7 hasn't run yet, do this edit directly in `report.json` since `report.json`-level theme wiring is not covered by a documented `pbir theme` subcommand for *selecting which registered theme is active*; `pbir theme` commands operate on an already-active theme's colors/formatting, not on swapping which file is registered as active. Confirm this with `pbir theme --help` once installed — if a direct command exists, prefer it and update this step).
 
-- [ ] **Step 2: Delete the old theme file**
+- [x] **Step 2: Delete the old theme file**
 
 ```bash
 cd "BI - Semana da Informática"
 rm "fifa-world-cup-2026.Report/StaticResources/RegisteredResources/Tramontina_Layout13807985785810117.json"
 ```
 
-- [ ] **Step 3: Verify no reference to the old file remains**
+- [x] **Step 3: Verify no reference to the old file remains**
 
 ```bash
 grep -rl "Tramontina" "fifa-world-cup-2026.Report/" 2>/dev/null
@@ -775,7 +775,7 @@ grep -rl "Tramontina" "fifa-world-cup-2026.Report/" 2>/dev/null
 
 Expected: no output.
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 cd "BI - Semana da Informática"

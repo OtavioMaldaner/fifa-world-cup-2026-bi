@@ -11,7 +11,7 @@
       "type": "SharedResources"
     },
     "customTheme": {
-      "name": "Tramontina_Layout13807985785810117.json",
+      "name": "IFRS_Feliz.json",
       "reportVersionAtImport": {
         "visual": "2.11.0",
         "report": "3.4.0",
@@ -52,8 +52,8 @@
       "type": "RegisteredResources",
       "items": [
         {
-          "name": "Tramontina_Layout13807985785810117.json",
-          "path": "Tramontina_Layout13807985785810117.json",
+          "name": "IFRS_Feliz.json",
+          "path": "IFRS_Feliz.json",
           "type": "CustomTheme"
         }
       ]
