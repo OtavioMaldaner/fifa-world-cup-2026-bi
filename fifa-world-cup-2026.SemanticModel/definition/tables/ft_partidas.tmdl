@@ -1,4 +1,5 @@
 table ft_partidas
+	isHidden
 	lineageTag: eb65e431-3965-4767-9ec5-be7409b8bf7a
 
 	column match_id
