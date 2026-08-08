@@ -41,7 +41,7 @@
 **Interfaces:**
 - Produces: a model with exactly 14 tables (10 base + 4 views), zero `LocalDateTable_*`/`DateTableTemplate_*` tables, zero relationships or column `variation` blocks referencing them. Later tasks assume this table count and assume `model.tmdl`'s `annotation __PBI_TimeIntelligenceEnabled` is `0`.
 
-- [ ] **Step 1: Confirm the exact scope before touching anything**
+- [x] **Step 1: Confirm the exact scope before touching anything**
 
 Run from the repo root:
 
@@ -67,7 +67,7 @@ tables/vw_xpts_selecao_partida.tmdl:2
 
 If any count differs, stop — the file layout has changed since this plan was written and the script below must be adjusted before running.
 
-- [ ] **Step 2: Write and run the removal script**
+- [x] **Step 2: Write and run the removal script**
 
 ```python
 # /tmp/remove_date_tables.py
@@ -152,7 +152,7 @@ python3 /tmp/remove_date_tables.py
 
 Expected output: `Date-table removal complete.` with no `AssertionError`.
 
-- [ ] **Step 3: Verify the counts by hand**
+- [x] **Step 3: Verify the counts by hand**
 
 ```bash
 cd "fifa-world-cup-2026.SemanticModel/definition"
@@ -164,11 +164,11 @@ grep "__PBI_TimeIntelligenceEnabled" ../definition/model.tmdl # expect "= 0"
 cd ../..
 ```
 
-- [ ] **Step 4: Static validation (agent gate)**
+- [x] **Step 4: Static validation (agent gate)**
 
 Dispatch the `pbip-validator` agent (or run its underlying check directly if invoked as a skill) against `fifa-world-cup-2026.SemanticModel`. It must report zero TMDL syntax errors and zero dangling relationship/variation references. Fix any reported issue before continuing — do not proceed to Task 2 with a validator error outstanding.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 cd "BI - Semana da Informática"

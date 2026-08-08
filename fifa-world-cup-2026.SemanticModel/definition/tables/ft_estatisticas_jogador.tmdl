@@ -178,10 +178,6 @@ table ft_estatisticas_jogador
 		summarizeBy: none
 		sourceColumn: last_verified
 
-		variation Variation
-			isDefault
-			relationship: eef41c31-ca36-4167-8380-8660841da839
-			defaultHierarchy: LocalDateTable_803eef3e-4c84-40d5-880a-fe82aaefb307.'Hierarquia de datas'
 
 		annotation SummarizationSetBy = Automatic
 

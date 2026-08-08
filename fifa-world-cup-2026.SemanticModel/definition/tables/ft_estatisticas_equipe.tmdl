@@ -106,10 +106,6 @@ table ft_estatisticas_equipe
 		summarizeBy: none
 		sourceColumn: last_updated
 
-		variation Variation
-			isDefault
-			relationship: f50922a2-8cb0-44a1-8621-68dff45504b5
-			defaultHierarchy: LocalDateTable_6b8ed32c-1356-401a-9638-b5ddb55bcd71.'Hierarquia de datas'
 
 		annotation SummarizationSetBy = Automatic
 

@@ -17,10 +17,6 @@ table vw_selecao_partida
 		summarizeBy: none
 		sourceColumn: match_date
 
-		variation Variation
-			isDefault
-			relationship: 1fc2a0d5-8035-420c-adaf-8a5246dc7514
-			defaultHierarchy: LocalDateTable_f6dc5d06-5aa9-479e-93d8-bec8e68d4462.'Hierarquia de datas'
 
 		annotation SummarizationSetBy = Automatic
 
@@ -33,10 +29,6 @@ table vw_selecao_partida
 		summarizeBy: none
 		sourceColumn: kickoff_time_utc
 
-		variation Variation
-			isDefault
-			relationship: 466fb02f-c428-4ad6-abe1-6b8f7306edcd
-			defaultHierarchy: LocalDateTable_0d324503-c34f-4524-acc5-28b1afab3dae.'Hierarquia de datas'
 
 		annotation SummarizationSetBy = Automatic
 

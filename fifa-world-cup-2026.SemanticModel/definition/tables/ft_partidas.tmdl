@@ -17,10 +17,6 @@ table ft_partidas
 		summarizeBy: none
 		sourceColumn: date
 
-		variation Variation
-			isDefault
-			relationship: 610ba9e3-f0f4-4a16-a55f-ddf3e54ba8fa
-			defaultHierarchy: LocalDateTable_b7832c73-c6ac-40f6-854d-4d3c60acb2ad.'Hierarquia de datas'
 
 		annotation SummarizationSetBy = Automatic
 
@@ -33,10 +29,6 @@ table ft_partidas
 		summarizeBy: none
 		sourceColumn: kickoff_time_utc
 
-		variation Variation
-			isDefault
-			relationship: c10ca0db-48a6-4f9c-a781-2b7917a7ad0d
-			defaultHierarchy: LocalDateTable_b95570d7-d2e9-4442-95b9-0120b68f00aa.'Hierarquia de datas'
 
 		annotation SummarizationSetBy = Automatic
 
