@@ -1,0 +1,128 @@
+{
+  "name": "kpi_eficiencia",
+  "visual": {
+    "visualType": "kpi",
+    "query": {
+      "queryState": {
+        "Indicator": {
+          "projections": [
+            {
+              "queryRef": "_Measures.Eficiência Ofensiva (Gols/xG)",
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Eficiência Ofensiva (Gols/xG)"
+                }
+              },
+              "nativeQueryRef": "Eficiência Ofensiva (Gols/xG)"
+            }
+          ]
+        },
+        "Goal": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Eficiência Média Torneio"
+                }
+              },
+              "queryRef": "_Measures.Eficiência Média Torneio",
+              "nativeQueryRef": "Eficiência Média Torneio"
+            }
+          ]
+        },
+        "TrendLine": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "vw_selecao_partida"
+                    }
+                  },
+                  "Property": "Data da Partida"
+                }
+              },
+              "queryRef": "vw_selecao_partida.Data da Partida",
+              "nativeQueryRef": "Data da Partida"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Measures"
+                  }
+                },
+                "Property": "Eficiência Ofensiva (Gols/xG)"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {},
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Eficiência Ofensiva (Gols/xG)'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "position": {
+    "x": 960,
+    "y": 88,
+    "z": 0,
+    "width": 296,
+    "height": 100,
+    "tabOrder": 0
+  },
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json"
+}

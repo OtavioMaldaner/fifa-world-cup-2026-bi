@@ -1,0 +1,144 @@
+{
+  "name": "table_confrontos",
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "vw_selecao_partida"
+                    }
+                  },
+                  "Property": "Adversário"
+                }
+              },
+              "queryRef": "vw_selecao_partida.Adversário",
+              "nativeQueryRef": "Adversário"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_etapas"
+                    }
+                  },
+                  "Property": "Fase"
+                }
+              },
+              "queryRef": "dim_etapas.Fase",
+              "nativeQueryRef": "Fase"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Gols Marcados"
+                }
+              },
+              "queryRef": "_Measures.Gols Marcados",
+              "nativeQueryRef": "Gols Marcados"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Gols Sofridos"
+                }
+              },
+              "queryRef": "_Measures.Gols Sofridos",
+              "nativeQueryRef": "Gols Sofridos"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "xG a Favor"
+                }
+              },
+              "queryRef": "_Measures.xG a Favor",
+              "nativeQueryRef": "xG a Favor"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "vw_selecao_partida"
+                    }
+                  },
+                  "Property": "Resultado"
+                }
+              },
+              "queryRef": "vw_selecao_partida.Resultado",
+              "nativeQueryRef": "Resultado"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {},
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Confrontos'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "position": {
+    "x": 24,
+    "y": 458,
+    "z": 0,
+    "width": 1232,
+    "height": 238,
+    "tabOrder": 0
+  },
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json"
+}
