@@ -3,10 +3,10 @@
   "name": "chart_pontos_acima",
   "position": {
     "x": 24,
-    "y": 204,
-    "z": 0,
-    "height": 238,
+    "y": 240,
     "width": 608,
+    "height": 224,
+    "z": 0,
     "tabOrder": 0
   },
   "visual": {
@@ -50,6 +50,24 @@
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Measures"
+                  }
+                },
+                "Property": "Pontos Acima do Esperado"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
       }
     },
     "objects": {
@@ -68,7 +86,7 @@
                         {
                           "Condition": {
                             "Comparison": {
-                              "ComparisonKind": 1,
+                              "ComparisonKind": 2,
                               "Left": {
                                 "Measure": {
                                   "Expression": {
@@ -115,7 +133,7 @@
                           },
                           "Value": {
                             "Literal": {
-                              "Value": "'#7B43A3'"
+                              "Value": "'bad'"
                             }
                           }
                         }
@@ -134,6 +152,26 @@
                 }
               }
             ]
+          }
+        }
+      ],
+      "valueAxis": [
+        {
+          "properties": {
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "titleText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Pontos Acima do Esperado'"
+                }
+              }
+            }
           }
         }
       ]
