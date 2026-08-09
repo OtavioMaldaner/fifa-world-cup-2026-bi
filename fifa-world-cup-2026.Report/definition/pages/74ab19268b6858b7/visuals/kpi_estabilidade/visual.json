@@ -3,10 +3,10 @@
   "name": "kpi_estabilidade",
   "position": {
     "x": 960,
-    "y": 88,
-    "z": 0,
-    "height": 100,
+    "y": 128,
     "width": 296,
+    "height": 96,
+    "z": 0,
     "tabOrder": 0
   },
   "visual": {
@@ -65,7 +65,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Estabilidade da Escalação (%)'"
+                  "Value": "'Estabilidade da Escalação'"
                 }
               }
             }
