@@ -10,11 +10,29 @@ table dim_etapas
 
 		annotation SummarizationSetBy = Automatic
 
-	column Fase
+	column 'Fase (Origem)'
 		dataType: string
-		lineageTag: e4e7c4e2-43ee-4e4a-a9a3-73823332f256
+		isHidden
+		lineageTag: 07e1a5a4-4b7d-4b6a-9f0e-3d6a9c2f1b8e
 		summarizeBy: none
 		sourceColumn: stage_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fase =
+			SWITCH(
+				TRUE(),
+				dim_etapas[Fase (Origem)] = "Group Stage", "Fase de Grupos",
+				dim_etapas[Fase (Origem)] = "Round of 32", "Rodada de 32",
+				dim_etapas[Fase (Origem)] = "Round of 16", "Oitavas de Final",
+				dim_etapas[Fase (Origem)] = "Quarter-finals", "Quartas de Final",
+				dim_etapas[Fase (Origem)] = "Semi-finals", "Semifinais",
+				dim_etapas[Fase (Origem)] = "Third-place match", "Disputa de 3º Lugar",
+				dim_etapas[Fase (Origem)] = "Final", "Final",
+				dim_etapas[Fase (Origem)]
+			)
+		lineageTag: e4e7c4e2-43ee-4e4a-a9a3-73823332f256
+		summarizeBy: none
 		sortByColumn: stage_id
 
 		annotation SummarizationSetBy = Automatic

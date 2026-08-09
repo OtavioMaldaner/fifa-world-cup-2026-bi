@@ -36,7 +36,7 @@ table _Measures
 		displayFolder: _Desempenho
 		lineageTag: 00000000-0000-0000-0000-000000000201
 
-	measure Vitórias = CALCULATE([Total de Partidas], vw_selecao_partida[result] = "WIN")
+	measure Vitórias = CALCULATE([Total de Partidas], vw_selecao_partida[Resultado (Origem)] = "WIN")
 		formatString: #,##0
 		displayFolder: _Desempenho
 		lineageTag: 00000000-0000-0000-0000-000000000202
