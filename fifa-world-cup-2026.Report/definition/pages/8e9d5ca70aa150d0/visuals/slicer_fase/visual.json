@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "slicer_fase",
   "position": {
-    "x": 976,
-    "y": 24,
-    "z": 0,
-    "height": 48,
+    "x": 340,
+    "y": 72,
     "width": 280,
+    "height": 40,
+    "z": 0,
     "tabOrder": 0
   },
   "visual": {
