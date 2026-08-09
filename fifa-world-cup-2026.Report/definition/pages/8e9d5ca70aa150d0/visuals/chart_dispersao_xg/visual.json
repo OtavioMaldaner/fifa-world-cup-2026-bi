@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "chart_dispersao_xg",
   "position": {
-    "x": 648,
-    "y": 204,
+    "x": 768,
+    "y": 240,
+    "width": 488,
+    "height": 224,
     "z": 0,
-    "height": 238,
-    "width": 608,
     "tabOrder": 0
   },
   "visual": {
@@ -106,6 +106,71 @@
         }
       ]
     },
-    "drillFilterOtherVisuals": true
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "categoryAxis": [
+        {
+          "properties": {
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "titleText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'xG a Favor'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "valueAxis": [
+        {
+          "properties": {
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "titleText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'xG Contra'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "y1AxisReferenceLine": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "1"
+          }
+        }
+      ]
+    }
   }
 }

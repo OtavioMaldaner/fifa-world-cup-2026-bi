@@ -3,10 +3,10 @@
   "name": "chart_gols_xg",
   "position": {
     "x": 24,
-    "y": 204,
+    "y": 240,
+    "width": 728,
+    "height": 224,
     "z": 0,
-    "height": 238,
-    "width": 608,
     "tabOrder": 0
   },
   "visual": {
@@ -105,6 +105,69 @@
         }
       ]
     },
-    "drillFilterOtherVisuals": true
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "categoryAxis": [
+        {
+          "properties": {
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "titleText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Data da Partida'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "valueAxis": [
+        {
+          "properties": {
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "titleText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Gols Marcados'"
+                }
+              }
+            },
+            "secShow": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "secShowAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "secTitleText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'xG a Favor'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
   }
 }
