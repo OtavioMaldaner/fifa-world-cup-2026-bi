@@ -86,7 +86,7 @@ table _Measures
 		displayFolder: _Avançado
 		lineageTag: 00000000-0000-0000-0000-000000000305
 
-	measure 'Estabilidade da Escalação (%)' = AVERAGE(vw_estabilidade_escalacao[lineup_stability_pct])
+	measure 'Estabilidade da Escalação (%)' = DIVIDE(AVERAGE(vw_estabilidade_escalacao[lineup_stability_pct]), 100)
 		formatString: 0.0%
 		displayFolder: _Avançado
 		lineageTag: 00000000-0000-0000-0000-000000000306
