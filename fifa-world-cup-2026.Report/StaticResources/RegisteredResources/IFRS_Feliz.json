@@ -2,13 +2,13 @@
   "name": "IFRS Feliz",
   "$schema": "reportSchema.json",
   "dataColors": [
-    "#339645",
-    "#1A4C23",
-    "#307E6E",
-    "#537D36",
-    "#5F6B6D",
-    "#7B43A3",
-    "#914678"
+    "#0B3D2E",
+    "#1F7A4D",
+    "#39A96B",
+    "#6B776F",
+    "#2E5947",
+    "#7FBF9E",
+    "#A8B5AE"
   ],
   "visualStyles": {
     "*": {
@@ -22,7 +22,12 @@
         "background": [
           {
             "show": true,
-            "transparency": 0
+            "transparency": 0,
+            "color": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            }
           }
         ],
         "legend": [
@@ -37,10 +42,10 @@
         "border": [
           {
             "show": true,
-            "radius": 3,
+            "radius": 6,
             "color": {
               "solid": {
-                "color": "#FFFFFF"
+                "color": "#DCE4DF"
               }
             }
           }
@@ -84,18 +89,19 @@
         ],
         "dropShadow": [
           {
-            "show": false,
-            "preset": "Custom",
-            "shadowDistance": 6,
-            "shadowBlur": 8,
+            "show": true,
+            "preset": "Bottom",
+            "shadowDistance": 1,
+            "shadowBlur": 4,
             "shadowSpread": 1,
             "angle": 45,
-            "transparency": 95,
+            "transparency": 92,
             "color": {
               "solid": {
-                "color": "#000000"
+                "color": "#17221C"
               }
-            }
+            },
+            "position": "Outer"
           }
         ],
         "calloutValue": [
@@ -169,11 +175,16 @@
             "alignment": "left",
             "showTitle": true,
             "fontFamily": "Segoe UI Semibold",
-            "fontSize": 14,
-            "bold": false,
+            "fontSize": 12,
+            "bold": true,
             "fontColor": {
               "solid": {
                 "color": "#666666"
+              }
+            },
+            "color": {
+              "solid": {
+                "color": "#17221C"
               }
             }
           }
@@ -217,7 +228,7 @@
           {
             "color": {
               "solid": {
-                "color": "#F3F3F3"
+                "color": "#F3F5F4"
               }
             }
           }
@@ -507,13 +518,14 @@
           {
             "show": true,
             "fontFamily": "Segoe UI Semibold",
-            "fontSize": 24,
+            "fontSize": 28,
             "labelPrecision": 1,
             "color": {
               "solid": {
-                "color": "#1A4C23"
+                "color": "#17221C"
               }
-            }
+            },
+            "bold": true
           }
         ],
         "categoryLabels": [
@@ -1526,5 +1538,13 @@
         ]
       }
     }
-  }
+  },
+  "background": "#F3F5F4",
+  "foreground": "#17221C",
+  "foregroundNeutralSecondary": "#6B776F",
+  "tableAccent": "#0B3D2E",
+  "accent": "#0B3D2E",
+  "good": "#1F7A4D",
+  "neutral": "#D4A72C",
+  "bad": "#C74343"
 }
