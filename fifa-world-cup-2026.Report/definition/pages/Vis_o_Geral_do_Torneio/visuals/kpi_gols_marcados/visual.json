@@ -3,10 +3,10 @@
   "name": "kpi_gols_marcados",
   "position": {
     "x": 336,
-    "y": 88,
-    "z": 0,
-    "height": 100,
+    "y": 128,
     "width": 296,
+    "height": 96,
+    "z": 0,
     "tabOrder": 0
   },
   "visual": {

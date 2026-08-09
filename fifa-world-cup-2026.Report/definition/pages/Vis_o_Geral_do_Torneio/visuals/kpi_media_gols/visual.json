@@ -1,37 +1,10 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "kpi_media_gols",
-  "position": {
-    "x": 648,
-    "y": 88,
-    "z": 0,
-    "height": 100,
-    "width": 296,
-    "tabOrder": 0
-  },
   "visual": {
-    "visualType": "kpi",
+    "visualType": "card",
     "query": {
       "queryState": {
-        "Goal": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Média Gols/Partida Torneio"
-                }
-              },
-              "queryRef": "_Measures.Média Gols/Partida Torneio",
-              "nativeQueryRef": "Média Gols/Partida Torneio"
-            }
-          ]
-        },
-        "Indicator": {
+        "Values": {
           "projections": [
             {
               "field": {
@@ -48,80 +21,41 @@
               "nativeQueryRef": "Média de Gols/Partida"
             }
           ]
-        },
-        "TrendLine": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "vw_selecao_partida"
-                    }
-                  },
-                  "Property": "Data da Partida"
-                }
-              },
-              "queryRef": "vw_selecao_partida.Data da Partida",
-              "nativeQueryRef": "Data da Partida"
-            }
-          ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "_Measures"
-                  }
-                },
-                "Property": "Média de Gols/Partida"
-              }
-            },
-            "direction": "Descending"
-          }
-        ],
-        "isDefaultSort": true
       }
     },
+    "objects": {},
+    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "title": [
         {
           "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Média de Gols por Partida'"
+                }
+              }
+            },
             "show": {
               "expr": {
                 "Literal": {
                   "Value": "true"
                 }
               }
-            },
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Média de Gols/Partida'"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "subTitle": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
             }
           }
         }
       ]
-    },
-    "drillFilterOtherVisuals": true
-  }
+    }
+  },
+  "position": {
+    "x": 648,
+    "y": 128,
+    "z": 0,
+    "width": 296,
+    "height": 96,
+    "tabOrder": 0
+  },
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json"
 }
