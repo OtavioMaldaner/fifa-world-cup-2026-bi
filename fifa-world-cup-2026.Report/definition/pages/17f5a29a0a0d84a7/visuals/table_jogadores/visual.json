@@ -1,0 +1,155 @@
+{
+  "name": "table_jogadores",
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_jogadores"
+                    }
+                  },
+                  "Property": "player_name"
+                }
+              },
+              "queryRef": "dim_jogadores.player_name",
+              "nativeQueryRef": "player_name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_selecoes"
+                    }
+                  },
+                  "Property": "Seleção"
+                }
+              },
+              "queryRef": "dim_selecoes.Seleção",
+              "nativeQueryRef": "Seleção"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_jogadores"
+                    }
+                  },
+                  "Property": "position"
+                }
+              },
+              "queryRef": "dim_jogadores.position",
+              "nativeQueryRef": "position"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Gols (Jogador)"
+                }
+              },
+              "queryRef": "_Measures.Gols (Jogador)",
+              "nativeQueryRef": "Gols (Jogador)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Assistências (Jogador)"
+                }
+              },
+              "queryRef": "_Measures.Assistências (Jogador)",
+              "nativeQueryRef": "Assistências (Jogador)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Cartões Amarelos (Jogador)"
+                }
+              },
+              "queryRef": "_Measures.Cartões Amarelos (Jogador)",
+              "nativeQueryRef": "Cartões Amarelos (Jogador)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Cartões Vermelhos (Jogador)"
+                }
+              },
+              "queryRef": "_Measures.Cartões Vermelhos (Jogador)",
+              "nativeQueryRef": "Cartões Vermelhos (Jogador)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Nota Média (Jogador)"
+                }
+              },
+              "queryRef": "_Measures.Nota Média (Jogador)",
+              "nativeQueryRef": "Nota Média (Jogador)"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Measures"
+                  }
+                },
+                "Property": "Gols (Jogador)"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {},
+    "drillFilterOtherVisuals": true
+  },
+  "position": {
+    "x": 24,
+    "y": 458,
+    "z": 0,
+    "width": 1232,
+    "height": 208,
+    "tabOrder": 0
+  },
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json"
+}
