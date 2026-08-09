@@ -1,5 +1,14 @@
 {
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "slicer_posicao",
+  "position": {
+    "x": 976,
+    "y": 24,
+    "z": 0,
+    "height": 48,
+    "width": 280,
+    "tabOrder": 0
+  },
   "visual": {
     "visualType": "slicer",
     "query": {
@@ -18,22 +27,13 @@
                 }
               },
               "queryRef": "dim_jogadores.position",
-              "nativeQueryRef": "position"
+              "nativeQueryRef": "position",
+              "active": true
             }
           ]
         }
       }
     },
-    "objects": {},
     "drillFilterOtherVisuals": true
-  },
-  "position": {
-    "x": 976,
-    "y": 24,
-    "z": 0,
-    "width": 280,
-    "height": 48,
-    "tabOrder": 0
-  },
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json"
+  }
 }

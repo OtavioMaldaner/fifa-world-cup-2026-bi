@@ -1,5 +1,14 @@
 {
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "chart_artilharia",
+  "position": {
+    "x": 24,
+    "y": 204,
+    "z": 0,
+    "height": 238,
+    "width": 608,
+    "tabOrder": 0
+  },
   "visual": {
     "visualType": "clusteredBarChart",
     "query": {
@@ -18,7 +27,8 @@
                 }
               },
               "queryRef": "dim_jogadores.player_name",
-              "nativeQueryRef": "player_name"
+              "nativeQueryRef": "player_name",
+              "active": true
             }
           ]
         },
@@ -74,18 +84,8 @@
         "isDefaultSort": true
       }
     },
-    "objects": {},
     "drillFilterOtherVisuals": true
   },
-  "position": {
-    "x": 24,
-    "y": 204,
-    "z": 0,
-    "width": 608,
-    "height": 238,
-    "tabOrder": 0
-  },
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "filterConfig": {
     "filters": [
       {
@@ -101,7 +101,6 @@
           }
         },
         "type": "TopN",
-        "howCreated": "User",
         "filter": {
           "Version": 2,
           "From": [
@@ -188,7 +187,8 @@
               }
             }
           ]
-        }
+        },
+        "howCreated": "User"
       }
     ]
   }
