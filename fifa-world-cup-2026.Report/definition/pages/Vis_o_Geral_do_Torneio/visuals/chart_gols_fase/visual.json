@@ -3,10 +3,10 @@
   "name": "chart_gols_fase",
   "position": {
     "x": 24,
-    "y": 204,
-    "z": 0,
-    "height": 238,
+    "y": 240,
     "width": 608,
+    "height": 224,
+    "z": 0,
     "tabOrder": 0
   },
   "visual": {
@@ -105,6 +105,48 @@
         }
       ]
     },
-    "drillFilterOtherVisuals": true
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "categoryAxis": [
+        {
+          "properties": {
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "titleText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Fase'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "valueAxis": [
+        {
+          "properties": {
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "titleText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Gols Marcados'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
   }
 }

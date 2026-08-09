@@ -3,10 +3,10 @@
   "name": "map_sedes",
   "position": {
     "x": 648,
-    "y": 204,
-    "z": 0,
-    "height": 238,
+    "y": 240,
     "width": 608,
+    "height": 224,
+    "z": 0,
     "tabOrder": 0
   },
   "visual": {
