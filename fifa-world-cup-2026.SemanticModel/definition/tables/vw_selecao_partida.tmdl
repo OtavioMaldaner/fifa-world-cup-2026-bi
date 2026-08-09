@@ -17,7 +17,6 @@ table vw_selecao_partida
 		summarizeBy: none
 		sourceColumn: match_date
 
-
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
@@ -28,7 +27,6 @@ table vw_selecao_partida
 		lineageTag: 0c047ecf-a2d4-46c7-b143-937506248a0c
 		summarizeBy: none
 		sourceColumn: kickoff_time_utc
-
 
 		annotation SummarizationSetBy = Automatic
 

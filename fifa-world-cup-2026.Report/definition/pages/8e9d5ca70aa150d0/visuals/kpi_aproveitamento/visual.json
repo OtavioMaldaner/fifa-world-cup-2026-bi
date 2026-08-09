@@ -1,27 +1,18 @@
 {
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "kpi_aproveitamento",
+  "position": {
+    "x": 336,
+    "y": 88,
+    "z": 0,
+    "height": 100,
+    "width": 296,
+    "tabOrder": 0
+  },
   "visual": {
     "visualType": "kpi",
     "query": {
       "queryState": {
-        "Indicator": {
-          "projections": [
-            {
-              "queryRef": "_Measures.Aproveitamento (%)",
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Aproveitamento (%)"
-                }
-              },
-              "nativeQueryRef": "Aproveitamento (%)"
-            }
-          ]
-        },
         "Goal": {
           "projections": [
             {
@@ -37,6 +28,24 @@
               },
               "queryRef": "_Measures.Aproveitamento (%) Médio",
               "nativeQueryRef": "Aproveitamento (%) Médio"
+            }
+          ]
+        },
+        "Indicator": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Aproveitamento (%)"
+                }
+              },
+              "queryRef": "_Measures.Aproveitamento (%)",
+              "nativeQueryRef": "Aproveitamento (%)"
             }
           ]
         },
@@ -78,8 +87,6 @@
         "isDefaultSort": true
       }
     },
-    "objects": {},
-    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "title": [
         {
@@ -114,15 +121,7 @@
           }
         }
       ]
-    }
-  },
-  "position": {
-    "x": 336,
-    "y": 88,
-    "z": 0,
-    "width": 296,
-    "height": 100,
-    "tabOrder": 0
-  },
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json"
+    },
+    "drillFilterOtherVisuals": true
+  }
 }

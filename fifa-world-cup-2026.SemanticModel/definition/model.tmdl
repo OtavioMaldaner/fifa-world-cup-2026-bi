@@ -12,7 +12,6 @@ annotation PBI_QueryOrder = ["vw_xpts_selecao_partida","vw_selecao_partida","vw_
 
 annotation PBI_ProTooling = ["DevMode"]
 
-ref table _Measures
 ref table vw_xpts_selecao_partida
 ref table vw_selecao_partida
 ref table vw_pontos_recuperados
@@ -27,6 +26,7 @@ ref table dim_jogadores
 ref table dim_etapas
 ref table dim_estadios
 ref table dim_arbitros
+ref table _Measures
 
 ref cultureInfo pt-BR
 

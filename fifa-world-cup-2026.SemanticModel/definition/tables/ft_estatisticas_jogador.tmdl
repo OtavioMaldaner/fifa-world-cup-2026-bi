@@ -178,7 +178,6 @@ table ft_estatisticas_jogador
 		summarizeBy: none
 		sourceColumn: last_verified
 
-
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date

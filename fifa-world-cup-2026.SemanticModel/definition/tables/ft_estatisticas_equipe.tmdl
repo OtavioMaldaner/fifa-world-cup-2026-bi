@@ -106,7 +106,6 @@ table ft_estatisticas_equipe
 		summarizeBy: none
 		sourceColumn: last_updated
 
-
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date

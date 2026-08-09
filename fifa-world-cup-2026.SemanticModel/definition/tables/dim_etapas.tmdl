@@ -14,8 +14,8 @@ table dim_etapas
 		dataType: string
 		lineageTag: e4e7c4e2-43ee-4e4a-a9a3-73823332f256
 		summarizeBy: none
-		sortByColumn: stage_id
 		sourceColumn: stage_name
+		sortByColumn: stage_id
 
 		annotation SummarizationSetBy = Automatic
 

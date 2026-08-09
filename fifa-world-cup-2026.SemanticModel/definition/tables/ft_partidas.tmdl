@@ -18,7 +18,6 @@ table ft_partidas
 		summarizeBy: none
 		sourceColumn: date
 
-
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
@@ -29,7 +28,6 @@ table ft_partidas
 		lineageTag: 1a376827-d5c5-4b4b-91ae-345a2e4d69f9
 		summarizeBy: none
 		sourceColumn: kickoff_time_utc
-
 
 		annotation SummarizationSetBy = Automatic
 

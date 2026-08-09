@@ -1,13 +1,40 @@
 {
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "chart_xpts_reais",
+  "position": {
+    "x": 648,
+    "y": 204,
+    "z": 0,
+    "height": 238,
+    "width": 608,
+    "tabOrder": 0
+  },
   "visual": {
     "visualType": "scatterChart",
     "query": {
       "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_selecoes"
+                    }
+                  },
+                  "Property": "Seleção"
+                }
+              },
+              "queryRef": "dim_selecoes.Seleção",
+              "nativeQueryRef": "Seleção",
+              "active": true
+            }
+          ]
+        },
         "X": {
           "projections": [
             {
-              "queryRef": "_Measures.Pontos Esperados (xPts)",
               "field": {
                 "Measure": {
                   "Expression": {
@@ -18,7 +45,9 @@
                   "Property": "Pontos Esperados (xPts)"
                 }
               },
-              "nativeQueryRef": "Pontos Esperados (xPts)"
+              "queryRef": "_Measures.Pontos Esperados (xPts)",
+              "nativeQueryRef": "Pontos Esperados (xPts)",
+              "active": true
             }
           ]
         },
@@ -37,24 +66,6 @@
               },
               "queryRef": "_Measures.Pontos Reais (xPts)",
               "nativeQueryRef": "Pontos Reais (xPts)"
-            }
-          ]
-        },
-        "Category": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "dim_selecoes"
-                    }
-                  },
-                  "Property": "Seleção"
-                }
-              },
-              "queryRef": "dim_selecoes.Seleção",
-              "nativeQueryRef": "Seleção"
             }
           ]
         }
@@ -78,8 +89,6 @@
         "isDefaultSort": true
       }
     },
-    "objects": {},
-    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "title": [
         {
@@ -114,15 +123,7 @@
           }
         }
       ]
-    }
-  },
-  "position": {
-    "x": 648,
-    "y": 204,
-    "z": 0,
-    "width": 608,
-    "height": 238,
-    "tabOrder": 0
-  },
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json"
+    },
+    "drillFilterOtherVisuals": true
+  }
 }

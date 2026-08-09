@@ -26,7 +26,7 @@ table dim_estadios
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'País-Sede'
+	column País-Sede
 		dataType: string
 		lineageTag: ee6ace45-d2bf-4703-89a2-8ad1f236c499
 		summarizeBy: none

@@ -43,7 +43,6 @@ table vw_estabilidade_escalacao
 		summarizeBy: none
 		sourceColumn: match_date
 
-
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
@@ -54,7 +53,6 @@ table vw_estabilidade_escalacao
 		lineageTag: f9f96d09-9cb9-4c3e-94ab-b4699c2f99f1
 		summarizeBy: none
 		sourceColumn: kickoff_time_utc
-
 
 		annotation SummarizationSetBy = Automatic
 

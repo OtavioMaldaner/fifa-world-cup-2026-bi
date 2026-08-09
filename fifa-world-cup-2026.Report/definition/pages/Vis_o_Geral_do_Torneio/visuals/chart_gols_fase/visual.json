@@ -1,5 +1,14 @@
 {
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "chart_gols_fase",
+  "position": {
+    "x": 24,
+    "y": 204,
+    "z": 0,
+    "height": 238,
+    "width": 608,
+    "tabOrder": 0
+  },
   "visual": {
     "visualType": "lineClusteredColumnComboChart",
     "query": {
@@ -18,7 +27,8 @@
                 }
               },
               "queryRef": "dim_etapas.Fase",
-              "nativeQueryRef": "Fase"
+              "nativeQueryRef": "Fase",
+              "active": true
             }
           ]
         },
@@ -60,8 +70,6 @@
         }
       }
     },
-    "objects": {},
-    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "title": [
         {
@@ -96,15 +104,7 @@
           }
         }
       ]
-    }
-  },
-  "position": {
-    "x": 24,
-    "y": 204,
-    "z": 0,
-    "width": 608,
-    "height": 238,
-    "tabOrder": 0
-  },
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json"
+    },
+    "drillFilterOtherVisuals": true
+  }
 }

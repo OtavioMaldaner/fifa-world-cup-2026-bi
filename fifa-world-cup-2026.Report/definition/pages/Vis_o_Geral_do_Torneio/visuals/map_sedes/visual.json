@@ -1,5 +1,14 @@
 {
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "map_sedes",
+  "position": {
+    "x": 648,
+    "y": 204,
+    "z": 0,
+    "height": 238,
+    "width": 608,
+    "tabOrder": 0
+  },
   "visual": {
     "visualType": "map",
     "query": {
@@ -7,7 +16,6 @@
         "Category": {
           "projections": [
             {
-              "queryRef": "dim_estadios.Cidade",
               "field": {
                 "Column": {
                   "Expression": {
@@ -18,7 +26,9 @@
                   "Property": "Cidade"
                 }
               },
-              "nativeQueryRef": "Cidade"
+              "queryRef": "dim_estadios.Cidade",
+              "nativeQueryRef": "Cidade",
+              "active": true
             }
           ]
         },
@@ -60,8 +70,6 @@
         }
       }
     },
-    "objects": {},
-    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "title": [
         {
@@ -96,15 +104,53 @@
           }
         }
       ]
-    }
+    },
+    "drillFilterOtherVisuals": true
   },
-  "position": {
-    "x": 648,
-    "y": 204,
-    "z": 0,
-    "width": 608,
-    "height": 238,
-    "tabOrder": 0
-  },
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json"
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "a418b80d1151a62e0cd0",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_estadios"
+              }
+            },
+            "Property": "Cidade"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "aeb527eb91aa02d150a5",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_estadios"
+              }
+            },
+            "Property": "País-Sede"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "5aad4ac07835969db445",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Total de Partidas"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
 }

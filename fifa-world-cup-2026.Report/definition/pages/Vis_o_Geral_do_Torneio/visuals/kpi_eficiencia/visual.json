@@ -1,27 +1,18 @@
 {
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "kpi_eficiencia",
+  "position": {
+    "x": 960,
+    "y": 88,
+    "z": 0,
+    "height": 100,
+    "width": 296,
+    "tabOrder": 0
+  },
   "visual": {
     "visualType": "kpi",
     "query": {
       "queryState": {
-        "Indicator": {
-          "projections": [
-            {
-              "queryRef": "_Measures.Eficiência Ofensiva (Gols/xG)",
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Eficiência Ofensiva (Gols/xG)"
-                }
-              },
-              "nativeQueryRef": "Eficiência Ofensiva (Gols/xG)"
-            }
-          ]
-        },
         "Goal": {
           "projections": [
             {
@@ -37,6 +28,24 @@
               },
               "queryRef": "_Measures.Eficiência Média Torneio",
               "nativeQueryRef": "Eficiência Média Torneio"
+            }
+          ]
+        },
+        "Indicator": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Eficiência Ofensiva (Gols/xG)"
+                }
+              },
+              "queryRef": "_Measures.Eficiência Ofensiva (Gols/xG)",
+              "nativeQueryRef": "Eficiência Ofensiva (Gols/xG)"
             }
           ]
         },
@@ -78,8 +87,6 @@
         "isDefaultSort": true
       }
     },
-    "objects": {},
-    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "title": [
         {
@@ -114,15 +121,7 @@
           }
         }
       ]
-    }
-  },
-  "position": {
-    "x": 960,
-    "y": 88,
-    "z": 0,
-    "width": 296,
-    "height": 100,
-    "tabOrder": 0
-  },
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json"
+    },
+    "drillFilterOtherVisuals": true
+  }
 }

@@ -17,7 +17,6 @@ table vw_pontos_recuperados
 		summarizeBy: none
 		sourceColumn: match_date
 
-
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
@@ -28,7 +27,6 @@ table vw_pontos_recuperados
 		lineageTag: abee68a1-a885-46bc-be40-b9ced52181e0
 		summarizeBy: none
 		sourceColumn: kickoff_time_utc
-
 
 		annotation SummarizationSetBy = Automatic
 

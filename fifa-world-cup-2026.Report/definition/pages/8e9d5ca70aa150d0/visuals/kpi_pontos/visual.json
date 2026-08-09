@@ -1,27 +1,18 @@
 {
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "kpi_pontos",
+  "position": {
+    "x": 24,
+    "y": 88,
+    "z": 0,
+    "height": 100,
+    "width": 296,
+    "tabOrder": 0
+  },
   "visual": {
     "visualType": "kpi",
     "query": {
       "queryState": {
-        "Indicator": {
-          "projections": [
-            {
-              "queryRef": "_Measures.Pontos Conquistados",
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Pontos Conquistados"
-                }
-              },
-              "nativeQueryRef": "Pontos Conquistados"
-            }
-          ]
-        },
         "Goal": {
           "projections": [
             {
@@ -37,6 +28,24 @@
               },
               "queryRef": "_Measures.Pontos Médios por Seleção",
               "nativeQueryRef": "Pontos Médios por Seleção"
+            }
+          ]
+        },
+        "Indicator": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Pontos Conquistados"
+                }
+              },
+              "queryRef": "_Measures.Pontos Conquistados",
+              "nativeQueryRef": "Pontos Conquistados"
             }
           ]
         },
@@ -78,8 +87,6 @@
         "isDefaultSort": true
       }
     },
-    "objects": {},
-    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "title": [
         {
@@ -114,15 +121,7 @@
           }
         }
       ]
-    }
-  },
-  "position": {
-    "x": 24,
-    "y": 88,
-    "z": 0,
-    "width": 296,
-    "height": 100,
-    "tabOrder": 0
-  },
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json"
+    },
+    "drillFilterOtherVisuals": true
+  }
 }
