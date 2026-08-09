@@ -1,19 +1,12 @@
 table _Measures
 	lineageTag: 00000000-0000-0000-0000-000000000001
 
-	column _dummy
-		dataType: int64
-		isHidden
-		lineageTag: 00000000-0000-0000-0000-000000000002
-		summarizeBy: none
-		sourceColumn: _dummy
-
 	measure 'Total de Partidas' = DISTINCTCOUNT(vw_selecao_partida[match_id])
 		formatString: #,##0
 		displayFolder: _Torneio
 		lineageTag: 00000000-0000-0000-0000-000000000101
 
-	measure 'Seleções' = DISTINCTCOUNT(vw_selecao_partida[team_id])
+	measure Seleções = DISTINCTCOUNT(vw_selecao_partida[team_id])
 		formatString: #,##0
 		displayFolder: _Torneio
 		lineageTag: 00000000-0000-0000-0000-000000000102
@@ -43,7 +36,7 @@ table _Measures
 		displayFolder: _Desempenho
 		lineageTag: 00000000-0000-0000-0000-000000000201
 
-	measure 'Vitórias' = CALCULATE([Total de Partidas], vw_selecao_partida[result] = "WIN")
+	measure Vitórias = CALCULATE([Total de Partidas], vw_selecao_partida[result] = "WIN")
 		formatString: #,##0
 		displayFolder: _Desempenho
 		lineageTag: 00000000-0000-0000-0000-000000000202
@@ -118,6 +111,107 @@ table _Measures
 		displayFolder: _Referência
 		lineageTag: 00000000-0000-0000-0000-000000000404
 
+	measure 'Gols (Jogador)' = SUM(ft_estatisticas_jogador[goals])
+		formatString: #,##0
+		displayFolder: _Jogadores
+		lineageTag: 00000000-0000-0000-0000-000000000501
+
+	measure 'Assistências (Jogador)' = SUM(ft_estatisticas_jogador[assists])
+		formatString: #,##0
+		displayFolder: _Jogadores
+		lineageTag: 00000000-0000-0000-0000-000000000502
+
+	measure 'Participações em Gols' = [Gols (Jogador)] + [Assistências (Jogador)]
+		formatString: #,##0
+		displayFolder: _Jogadores
+		lineageTag: 00000000-0000-0000-0000-000000000503
+
+	measure 'Participações em Gols por 90' = DIVIDE(90 * [Participações em Gols], SUM(ft_estatisticas_jogador[minutes_played]))
+		formatString: #,##0.00
+		displayFolder: _Jogadores
+		lineageTag: 00000000-0000-0000-0000-000000000504
+
+	measure 'Cartões Amarelos (Jogador)' = SUM(ft_estatisticas_jogador[yellow_cards])
+		formatString: #,##0
+		displayFolder: _Jogadores
+		lineageTag: 00000000-0000-0000-0000-000000000505
+
+	measure 'Cartões Vermelhos (Jogador)' = SUM(ft_estatisticas_jogador[red_cards])
+		formatString: #,##0
+		displayFolder: _Jogadores
+		lineageTag: 00000000-0000-0000-0000-000000000506
+
+	measure Defesas = SUM(ft_estatisticas_jogador[saves])
+		formatString: #,##0
+		displayFolder: _Jogadores
+		lineageTag: 00000000-0000-0000-0000-000000000507
+
+	measure 'Jogos sem Sofrer Gol' = SUM(ft_estatisticas_jogador[clean_sheets])
+		formatString: #,##0
+		displayFolder: _Jogadores
+		lineageTag: 00000000-0000-0000-0000-000000000508
+
+	measure 'Gols Sofridos (Jogador)' = SUM(ft_estatisticas_jogador[goals_conceded])
+		formatString: #,##0
+		displayFolder: _Jogadores
+		lineageTag: 00000000-0000-0000-0000-000000000509
+
+	measure 'Nota Média (Jogador)' = AVERAGE(ft_estatisticas_jogador[average_rating])
+		formatString: 0.0
+		displayFolder: _Jogadores
+		lineageTag: 00000000-0000-0000-0000-000000000510
+
+	measure 'Minutos Jogados (Jogador)' = SUM(ft_estatisticas_jogador[minutes_played])
+		formatString: #,##0
+		displayFolder: _Jogadores
+		lineageTag: 00000000-0000-0000-0000-000000000511
+
+	measure 'Artilheiro do Torneio' =
+			VAR RankedPlayers = ADDCOLUMNS(VALUES(dim_jogadores[player_name]), "@V", [Gols (Jogador)])
+			VAR TopRow = TOPN(1, RankedPlayers, [@V], DESC)
+			VAR TopName = MAXX(TopRow, dim_jogadores[player_name])
+			VAR TopValue = MAXX(TopRow, [@V])
+			RETURN IF(ISBLANK(TopName), "Sem dados", TopName & " — " & TopValue & " gols")
+		displayFolder: _Jogadores
+		lineageTag: 00000000-0000-0000-0000-000000000512
+
+	measure 'Garçom do Torneio' =
+			VAR RankedPlayers = ADDCOLUMNS(VALUES(dim_jogadores[player_name]), "@V", [Assistências (Jogador)])
+			VAR TopRow = TOPN(1, RankedPlayers, [@V], DESC)
+			VAR TopName = MAXX(TopRow, dim_jogadores[player_name])
+			VAR TopValue = MAXX(TopRow, [@V])
+			RETURN IF(ISBLANK(TopName), "Sem dados", TopName & " — " & TopValue & " assist.")
+		displayFolder: _Jogadores
+		lineageTag: 00000000-0000-0000-0000-000000000513
+
+	measure 'Melhor Goleiro (Defesas)' =
+			VAR RankedPlayers =
+				CALCULATETABLE(
+					ADDCOLUMNS(VALUES(dim_jogadores[player_name]), "@V", [Defesas]),
+					dim_jogadores[position] = "GK"
+				)
+			VAR TopRow = TOPN(1, RankedPlayers, [@V], DESC)
+			VAR TopName = MAXX(TopRow, dim_jogadores[player_name])
+			VAR TopValue = MAXX(TopRow, [@V])
+			RETURN IF(ISBLANK(TopName), "Sem dados", TopName & " — " & TopValue & " defesas")
+		displayFolder: _Jogadores
+		lineageTag: 00000000-0000-0000-0000-000000000514
+
+	measure 'Melhor Nota Média' =
+			VAR RankedPlayers = ADDCOLUMNS(VALUES(dim_jogadores[player_name]), "@V", [Nota Média (Jogador)])
+			VAR TopRow = TOPN(1, RankedPlayers, [@V], DESC)
+			VAR TopName = MAXX(TopRow, dim_jogadores[player_name])
+			VAR TopValue = MAXX(TopRow, [@V])
+			RETURN IF(ISBLANK(TopName), "Sem dados", TopName & " — " & FORMAT(TopValue, "0.0"))
+		displayFolder: _Jogadores
+		lineageTag: 00000000-0000-0000-0000-000000000515
+
+	column _dummy
+		lineageTag: 9742ced9-d7af-4b41-bd61-e0a4bc0feded
+		isNameInferred
+		sourceColumn: [_dummy]
+
 	partition _Measures = calculated
 		mode: import
 		source = ROW("_dummy", 0)
+
