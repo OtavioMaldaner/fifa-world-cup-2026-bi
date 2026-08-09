@@ -170,16 +170,17 @@ with:
 
 		annotation SummarizationSetBy = Automatic
 
-	column Fase = SWITCH(
-			TRUE(),
-			dim_etapas[Fase (Origem)] = "Group Stage", "Fase de Grupos",
-			dim_etapas[Fase (Origem)] = "Round of 32", "Rodada de 32",
-			dim_etapas[Fase (Origem)] = "Round of 16", "Oitavas de Final",
-			dim_etapas[Fase (Origem)] = "Quarter-finals", "Quartas de Final",
-			dim_etapas[Fase (Origem)] = "Semi-finals", "Semifinais",
-			dim_etapas[Fase (Origem)] = "Third-place match", "Disputa de 3º Lugar",
-			dim_etapas[Fase (Origem)] = "Final", "Final",
-			dim_etapas[Fase (Origem)]
+	column Fase =
+			SWITCH(
+				TRUE(),
+				dim_etapas[Fase (Origem)] = "Group Stage", "Fase de Grupos",
+				dim_etapas[Fase (Origem)] = "Round of 32", "Rodada de 32",
+				dim_etapas[Fase (Origem)] = "Round of 16", "Oitavas de Final",
+				dim_etapas[Fase (Origem)] = "Quarter-finals", "Quartas de Final",
+				dim_etapas[Fase (Origem)] = "Semi-finals", "Semifinais",
+				dim_etapas[Fase (Origem)] = "Third-place match", "Disputa de 3º Lugar",
+				dim_etapas[Fase (Origem)] = "Final", "Final",
+				dim_etapas[Fase (Origem)]
 			)
 		lineageTag: e4e7c4e2-43ee-4e4a-a9a3-73823332f256
 		summarizeBy: none
@@ -241,12 +242,13 @@ with:
 
 		annotation SummarizationSetBy = Automatic
 
-	column Resultado = SWITCH(
-			TRUE(),
-			vw_selecao_partida[Resultado (Origem)] = "WIN", "Vitória",
-			vw_selecao_partida[Resultado (Origem)] = "DRAW", "Empate",
-			vw_selecao_partida[Resultado (Origem)] = "LOSS", "Derrota",
-			vw_selecao_partida[Resultado (Origem)]
+	column Resultado =
+			SWITCH(
+				TRUE(),
+				vw_selecao_partida[Resultado (Origem)] = "WIN", "Vitória",
+				vw_selecao_partida[Resultado (Origem)] = "DRAW", "Empate",
+				vw_selecao_partida[Resultado (Origem)] = "LOSS", "Derrota",
+				vw_selecao_partida[Resultado (Origem)]
 			)
 		lineageTag: 72821297-1f23-4d87-b72e-8dc8ccf3d194
 		summarizeBy: none
@@ -267,13 +269,63 @@ cd ../../..
 
 Dispatch `pbip-validator` against `fifa-world-cup-2026.SemanticModel` one more time on the combined final state (both `dim_etapas.tmdl` and `vw_selecao_partida.tmdl` changes). Zero errors expected. Same requirement as Step 4: explicitly request `tmdl-validate` single-file mode on `vw_selecao_partida.tmdl`, not directory mode alone.
 
-- [ ] **Step 10: Commit both fixes together**
+- [ ] **Step 10: Do not commit yet** — Steps 11–14 fix a second, independently-confirmed pre-existing bug in the same table this task already touches; all three fixes land in one commit at Step 15.
+
+**Bug found while validating Task 1** (via `pbip-validator`'s cross-file column-resolution check, not part of the original brief's named checklist, but squarely inside its "verifique... a coerência entre" mandate): `_Measures.tmdl:39`'s `Vitórias` measure —
+
+```tmdl
+	measure Vitórias = CALCULATE([Total de Partidas], vw_selecao_partida[result] = "WIN")
+```
+
+— references `vw_selecao_partida[result]`, a raw **source-column** name. DAX table/column references resolve against the **model's** column name, not the underlying SQL source name; the model's actual column is `Resultado` (renamed from `result` — the same renaming pattern this task is already fixing for `Fase` and `Resultado`'s translated values). `vw_selecao_partida[result]` does not exist as a model column, so this measure fails to evaluate (column-not-found) any time it's used. Confirmed via `pbip-validator`'s DAX cross-reference check, not merely a TMDL syntax scan (TMDL validators check grammar, not whether a DAX string references a real column).
+
+- [ ] **Step 11: Confirm current state**
+
+```bash
+cd "BI - Semana da Informática/fifa-world-cup-2026.SemanticModel/definition"
+grep -n "measure Vitórias" tables/_Measures.tmdl
+cd ../../..
+```
+
+Expected: `measure Vitórias = CALCULATE([Total de Partidas], vw_selecao_partida[result] = "WIN")` — confirms the broken reference is still present.
+
+- [ ] **Step 12: Apply the fix**
+
+In `fifa-world-cup-2026.SemanticModel/definition/tables/_Measures.tmdl`, change:
+
+```tmdl
+	measure Vitórias = CALCULATE([Total de Partidas], vw_selecao_partida[result] = "WIN")
+```
+
+to:
+
+```tmdl
+	measure Vitórias = CALCULATE([Total de Partidas], vw_selecao_partida[Resultado (Origem)] = "WIN")
+```
+
+(References the hidden **raw** column added in Step 7 of this same task, not the translated `Resultado` — this measure's comparison is an internal boolean check invisible to report viewers; only its resulting count is shown, so there's no reason to couple its correctness to the Portuguese string chosen in Step 7. Referencing the untranslated `Resultado (Origem)` with the original `"WIN"` is simpler and won't break if the translation strings ever change independently.)
+
+- [ ] **Step 13: Verify**
+
+```bash
+cd "BI - Semana da Informática/fifa-world-cup-2026.SemanticModel/definition"
+grep -n "measure Vitórias" tables/_Measures.tmdl
+cd ../../..
+```
+
+Expected: `vw_selecao_partida[Resultado (Origem)] = "WIN"`.
+
+- [ ] **Step 14: Static validation (agent gate)**
+
+Dispatch `pbip-validator` against `fifa-world-cup-2026.SemanticModel` on the combined final state (`dim_etapas.tmdl`, `vw_selecao_partida.tmdl`, and now `_Measures.tmdl`). Zero errors expected — specifically confirm the `Vitórias` cross-file column-reference error is gone, and that Step 12's edit didn't touch any other measure in the file. **Report the validator's exact raw output in the task report — a narrative summary is not sufficient evidence for this project** (this is a repeated project convention, not new to this task).
+
+- [ ] **Step 15: Commit all three fixes together**
 
 ```bash
 cd "BI - Semana da Informática"
-git add fifa-world-cup-2026.SemanticModel/definition/tables/dim_etapas.tmdl fifa-world-cup-2026.SemanticModel/definition/tables/vw_selecao_partida.tmdl
+git add fifa-world-cup-2026.SemanticModel/definition/tables/dim_etapas.tmdl fifa-world-cup-2026.SemanticModel/definition/tables/vw_selecao_partida.tmdl fifa-world-cup-2026.SemanticModel/definition/tables/_Measures.tmdl
 git commit -m "$(cat <<'EOF'
-fix: translate Fase and Resultado values to Portuguese
+fix: translate Fase and Resultado values, fix Vitórias' broken reference
 
 Both dim_etapas.Fase and vw_selecao_partida.Resultado were renamed
 from their English source columns (stage_name, result) but never had
@@ -289,6 +341,14 @@ to Portuguese, with the raw value as a SWITCH fallback for anything
 unmapped. Every existing report binding to dim_etapas.Fase or
 vw_selecao_partida.Resultado keeps working unchanged since neither
 display name nor lineageTag moved.
+
+Also fixes an independently-confirmed pre-existing bug found while
+validating this same table: the Vitórias measure referenced
+vw_selecao_partida[result], a raw source-column name that isn't a
+valid DAX reference target (the model column is Resultado) -- this
+measure has been failing to evaluate. Repointed it at the new hidden
+Resultado (Origem) column with the original "WIN" comparison, so its
+correctness doesn't depend on the Portuguese translation strings.
 EOF
 )"
 ```
