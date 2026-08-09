@@ -179,7 +179,7 @@
             "bold": true,
             "fontColor": {
               "solid": {
-                "color": "#666666"
+                "color": "#17221C"
               }
             },
             "color": {
@@ -542,6 +542,11 @@
               "solid": {
                 "color": "#666666"
               }
+            },
+            "fontColor": {
+              "solid": {
+                "color": "#17221C"
+              }
             }
           }
         ],
@@ -594,7 +599,7 @@
             "show": false,
             "fontColor": {
               "solid": {
-                "color": "#E6E6E6"
+                "color": "#17221C"
               }
             },
             "fontSize": 17
