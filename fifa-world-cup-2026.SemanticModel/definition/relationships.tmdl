@@ -151,6 +151,12 @@ relationship 6fcde4a7-db94-4200-a7ec-691731e83a3a
 
 	annotation PBI_IsFromSource = FS
 
+relationship f584ef8f-ad15-4efe-a83a-c9fa2ee2116d
+	fromColumn: ft_estatisticas_jogador.player_id
+	toColumn: dim_jogadores.player_id
+
+	annotation PBI_IsFromSource = FS
+
 relationship 99176784-8f48-4c05-8f78-cfafbbc4f5bd
 	fromColumn: ft_estatisticas_jogador.team_id
 	toColumn: dim_selecoes.team_id
