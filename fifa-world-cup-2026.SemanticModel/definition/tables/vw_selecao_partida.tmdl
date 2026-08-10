@@ -172,6 +172,14 @@ table vw_selecao_partida
 
 		annotation SummarizationSetBy = Automatic
 
+	column team_role
+		dataType: string
+		lineageTag: f8c734a0-f20a-4d74-ade3-93b718a37eef
+		summarizeBy: none
+		sourceColumn: team_role
+
+		annotation SummarizationSetBy = Automatic
+
 	column 'Resultado (Origem)'
 		dataType: string
 		isHidden
@@ -191,14 +199,6 @@ table vw_selecao_partida
 			)
 		lineageTag: 72821297-1f23-4d87-b72e-8dc8ccf3d194
 		summarizeBy: none
-
-		annotation SummarizationSetBy = Automatic
-
-	column team_role
-		dataType: string
-		lineageTag: f8c734a0-f20a-4d74-ade3-93b718a37eef
-		summarizeBy: none
-		sourceColumn: team_role
 
 		annotation SummarizationSetBy = Automatic
 

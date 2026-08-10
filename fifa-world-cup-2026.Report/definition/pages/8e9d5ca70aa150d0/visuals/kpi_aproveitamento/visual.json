@@ -1,5 +1,14 @@
 {
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "kpi_aproveitamento",
+  "position": {
+    "x": 336,
+    "y": 128,
+    "z": 1000,
+    "height": 96,
+    "width": 296,
+    "tabOrder": 1000
+  },
   "visual": {
     "visualType": "card",
     "query": {
@@ -24,8 +33,6 @@
         }
       }
     },
-    "objects": {},
-    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "title": [
         {
@@ -47,15 +54,7 @@
           }
         }
       ]
-    }
-  },
-  "position": {
-    "x": 336,
-    "y": 128,
-    "z": 0,
-    "width": 296,
-    "height": 96,
-    "tabOrder": 0
-  },
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json"
+    },
+    "drillFilterOtherVisuals": true
+  }
 }

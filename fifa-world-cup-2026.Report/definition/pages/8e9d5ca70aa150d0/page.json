@@ -2,9 +2,9 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
   "name": "8e9d5ca70aa150d0",
   "displayName": "Perfil da Seleção",
-  "width": 1280,
-  "height": 720,
   "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
   "filterConfig": {
     "filters": [
       {
@@ -20,46 +20,7 @@
           }
         },
         "type": "Categorical",
-        "howCreated": "User",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "d",
-              "Entity": "dim_selecoes",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "In": {
-                  "Expressions": [
-                    {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Source": "d"
-                          }
-                        },
-                        "Property": "Seleção"
-                      }
-                    }
-                  ],
-                  "Values": [
-                    [
-                      {
-                        "Literal": {
-                          "Value": "'Mexico'"
-                        }
-                      }
-                    ]
-                  ]
-                }
-              }
-            }
-          ]
-        }
+        "howCreated": "User"
       }
     ]
   }

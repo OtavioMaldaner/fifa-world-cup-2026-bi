@@ -4,10 +4,10 @@
   "position": {
     "x": 24,
     "y": 480,
-    "width": 1232,
+    "z": 1000,
     "height": 216,
-    "z": 0,
-    "tabOrder": 0
+    "width": 1232,
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "tableEx",
@@ -412,62 +412,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "e9ca9c93597243d40a0c",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "Pontos Conquistados"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "d684682a90cc70805c01",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "Saldo de Gols"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "b958b94c602071b918b2",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "Gols Marcados"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "f59618c8768640060a0e",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "Aproveitamento (%)"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

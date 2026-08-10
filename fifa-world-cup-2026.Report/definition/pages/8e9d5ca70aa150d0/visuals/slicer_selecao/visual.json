@@ -4,10 +4,10 @@
   "position": {
     "x": 24,
     "y": 72,
-    "width": 300,
+    "z": 7000,
     "height": 40,
-    "z": 0,
-    "tabOrder": 0
+    "width": 300,
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "slicer",
@@ -34,24 +34,13 @@
         }
       }
     },
+    "objects": {
+      "general": [
+        {
+          "properties": {}
+        }
+      ]
+    },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "568e2c4d69c61b2c8dc0",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dim_selecoes"
-              }
-            },
-            "Property": "Seleção"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

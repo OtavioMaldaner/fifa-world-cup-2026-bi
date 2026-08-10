@@ -4,10 +4,10 @@
   "position": {
     "x": 648,
     "y": 240,
-    "width": 608,
+    "z": 2000,
     "height": 224,
-    "z": 0,
-    "tabOrder": 0
+    "width": 608,
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "map",
@@ -106,51 +106,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "a418b80d1151a62e0cd0",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dim_estadios"
-              }
-            },
-            "Property": "Cidade"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "aeb527eb91aa02d150a5",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dim_estadios"
-              }
-            },
-            "Property": "País-Sede"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "5aad4ac07835969db445",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "Total de Partidas"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

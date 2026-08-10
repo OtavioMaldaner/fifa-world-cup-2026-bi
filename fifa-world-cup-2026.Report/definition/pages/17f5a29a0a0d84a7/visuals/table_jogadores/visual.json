@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "table_jogadores",
   "position": {
-    "x": 24,
-    "y": 458,
-    "z": 0,
-    "height": 208,
-    "width": 1232,
-    "tabOrder": 0
+    "x": 23.940886699507388,
+    "y": 458.42364532019707,
+    "z": 5000,
+    "height": 245.61576354679804,
+    "width": 1231.6256157635469,
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "tableEx",
