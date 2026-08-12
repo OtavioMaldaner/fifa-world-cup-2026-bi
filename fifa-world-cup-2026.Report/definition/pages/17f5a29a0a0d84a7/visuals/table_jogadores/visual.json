@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "table_jogadores",
   "position": {
-    "x": 23.940886699507388,
-    "y": 458.42364532019707,
-    "z": 5000,
-    "height": 245.61576354679804,
-    "width": 1231.6256157635469,
-    "tabOrder": 4000
+    "x": 16,
+    "y": 424,
+    "z": 1000,
+    "height": 280,
+    "width": 1760,
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "tableEx",
@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "dim_jogadores.player_name",
-              "nativeQueryRef": "player_name"
+              "nativeQueryRef": "Jogador",
+              "displayName": "Jogador"
             },
             {
               "field": {
@@ -55,7 +56,8 @@
                 }
               },
               "queryRef": "dim_jogadores.position",
-              "nativeQueryRef": "position"
+              "nativeQueryRef": "Posição",
+              "displayName": "Posição"
             },
             {
               "field": {
@@ -69,7 +71,8 @@
                 }
               },
               "queryRef": "_Measures.Gols (Jogador)",
-              "nativeQueryRef": "Gols (Jogador)"
+              "nativeQueryRef": "Gols",
+              "displayName": "Gols"
             },
             {
               "field": {
@@ -83,7 +86,8 @@
                 }
               },
               "queryRef": "_Measures.Assistências (Jogador)",
-              "nativeQueryRef": "Assistências (Jogador)"
+              "nativeQueryRef": "Assistências",
+              "displayName": "Assistências"
             },
             {
               "field": {
@@ -97,7 +101,8 @@
                 }
               },
               "queryRef": "_Measures.Cartões Amarelos (Jogador)",
-              "nativeQueryRef": "Cartões Amarelos (Jogador)"
+              "nativeQueryRef": "Cartões Amarelos",
+              "displayName": "Cartões Amarelos"
             },
             {
               "field": {
@@ -111,7 +116,23 @@
                 }
               },
               "queryRef": "_Measures.Cartões Vermelhos (Jogador)",
-              "nativeQueryRef": "Cartões Vermelhos (Jogador)"
+              "nativeQueryRef": "Cartões Vermelhos",
+              "displayName": "Cartões Vermelhos"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Defesas"
+                }
+              },
+              "queryRef": "_Measures.Defesas",
+              "nativeQueryRef": "Defesas (Goleiro)",
+              "displayName": "Defesas (Goleiro)"
             }
           ]
         }
@@ -131,8 +152,7 @@
             },
             "direction": "Descending"
           }
-        ],
-        "isDefaultSort": true
+        ]
       }
     },
     "objects": {
@@ -148,8 +168,238 @@
             }
           }
         }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "516.2554979118315D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "dim_jogadores.player_name"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "156.00421111795066D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "dim_jogadores.position"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "160.00005670361742D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Gols (Jogador)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "155.28205574552484D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Assistências (Jogador)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "158.30460699208308D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Cartões Amarelos (Jogador)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "178.6666295406923D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Cartões Vermelhos (Jogador)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "161.66666666666669D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Defesas"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "243.29238577378882D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "dim_selecoes.Seleção"
+          }
+        }
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "f1ae5941beb601341920",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_jogadores"
+              }
+            },
+            "Property": "player_name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "a7022997004752d1697a",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_selecoes"
+              }
+            },
+            "Property": "Seleção"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "011b5a7cdc3c17002ad9",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_jogadores"
+              }
+            },
+            "Property": "position"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "9fb01832904d7d252b82",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Gols (Jogador)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "99323ff2724d0e00804e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Assistências (Jogador)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "b5befbe4b0e963ce0640",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Cartões Amarelos (Jogador)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "12c17f9d83e618d370b1",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Cartões Vermelhos (Jogador)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "f123aa91404dcdd12843",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Defesas"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

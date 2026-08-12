@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "chart_pontos_acima",
   "position": {
-    "x": 24,
-    "y": 240,
-    "z": 5000,
-    "height": 224,
-    "width": 608,
+    "x": 16,
+    "y": 160,
+    "z": 3000,
+    "height": 264,
+    "width": 872,
     "tabOrder": 3000
   },
   "visual": {

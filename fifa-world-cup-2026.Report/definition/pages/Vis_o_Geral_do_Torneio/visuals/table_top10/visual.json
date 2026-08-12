@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "table_top10",
   "position": {
-    "x": 24,
-    "y": 480,
+    "x": 16,
+    "y": 440,
     "z": 1000,
-    "height": 216,
-    "width": 1232,
+    "height": 264,
+    "width": 872,
     "tabOrder": 1000
   },
   "visual": {
@@ -269,6 +269,78 @@
                 }
               }
             }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "202D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "dim_selecoes.Seleção"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "226D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Pontos Conquistados"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "139D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Saldo de Gols"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "125D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Gols Marcados"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "151D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Aproveitamento (%)"
           }
         }
       ]

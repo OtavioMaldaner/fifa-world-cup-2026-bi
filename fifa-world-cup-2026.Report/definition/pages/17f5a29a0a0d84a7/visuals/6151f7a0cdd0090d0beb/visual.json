@@ -1,8 +1,8 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
-  "name": "kpi_total_partidas",
+  "name": "6151f7a0cdd0090d0beb",
   "position": {
-    "x": 16,
+    "x": 904,
     "y": 48,
     "z": 7000,
     "height": 96,
@@ -23,32 +23,14 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Total de Partidas"
+                  "Property": "Melhor Goleiro (Defesas)"
                 }
               },
-              "queryRef": "_Measures.Total de Partidas",
-              "nativeQueryRef": "Total de Partidas"
+              "queryRef": "_Measures.Melhor Goleiro (Defesas)",
+              "nativeQueryRef": "Melhor Goleiro (Defesas)"
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "_Measures"
-                  }
-                },
-                "Property": "Total de Partidas"
-              }
-            },
-            "direction": "Descending"
-          }
-        ],
-        "isDefaultSort": true
       }
     },
     "objects": {
@@ -61,13 +43,6 @@
                   "Value": "24D"
                 }
               }
-            },
-            "labelPrecision": {
-              "expr": {
-                "Literal": {
-                  "Value": "0L"
-                }
-              }
             }
           }
         }
@@ -77,37 +52,17 @@
       "title": [
         {
           "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Total de Partidas'"
-                }
-              }
-            },
             "fontSize": {
               "expr": {
                 "Literal": {
                   "Value": "14D"
                 }
               }
-            }
-          }
-        }
-      ],
-      "subTitle": [
-        {
-          "properties": {
-            "show": {
+            },
+            "text": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "'Melhor Goleiro'"
                 }
               }
             }

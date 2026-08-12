@@ -1,6 +1,6 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
-  "name": "kpi_eficiencia",
+  "name": "d3ae44a876c066ce2bb0",
   "position": {
     "x": 1352,
     "y": 48,
@@ -23,11 +23,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Eficiência Ofensiva (Gols/xG)"
+                  "Property": "Melhor Nota Média"
                 }
               },
-              "queryRef": "_Measures.Eficiência Ofensiva (Gols/xG)",
-              "nativeQueryRef": "Eficiência Ofensiva (Gols/xG)"
+              "queryRef": "_Measures.Melhor Nota Média",
+              "nativeQueryRef": "Melhor Nota Média"
             }
           ]
         }
@@ -52,24 +52,17 @@
       "title": [
         {
           "properties": {
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Eficiência Ofensiva'"
-                }
-              }
-            },
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
             "fontSize": {
               "expr": {
                 "Literal": {
                   "Value": "14D"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Melhor Nota Média'"
                 }
               }
             }

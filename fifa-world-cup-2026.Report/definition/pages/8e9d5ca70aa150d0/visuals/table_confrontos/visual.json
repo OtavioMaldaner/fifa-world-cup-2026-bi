@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "table_confrontos",
   "position": {
-    "x": 24,
-    "y": 480,
-    "width": 1232,
-    "height": 216,
+    "x": 16,
+    "y": 448,
     "z": 0,
+    "height": 256,
+    "width": 1760,
     "tabOrder": 0
   },
   "visual": {
@@ -23,11 +23,27 @@
                       "Entity": "vw_selecao_partida"
                     }
                   },
+                  "Property": "team_name"
+                }
+              },
+              "queryRef": "vw_selecao_partida.team_name",
+              "nativeQueryRef": "Seleção",
+              "displayName": "Seleção"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "vw_selecao_partida"
+                    }
+                  },
                   "Property": "Adversário"
                 }
               },
               "queryRef": "vw_selecao_partida.Adversário",
-              "nativeQueryRef": "Adversário"
+              "nativeQueryRef": "Seleção Adversária",
+              "displayName": "Seleção Adversária"
             },
             {
               "field": {
@@ -101,6 +117,36 @@
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "vw_selecao_partida"
+                  }
+                },
+                "Property": "team_name"
+              }
+            },
+            "direction": "Ascending"
+          },
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dim_etapas"
+                  }
+                },
+                "Property": "Fase"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
       }
     },
     "objects": {
@@ -198,6 +244,106 @@
       "columnFormatting": [
         {
           "properties": {}
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "389D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "vw_selecao_partida.team_name"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "379D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "vw_selecao_partida.Adversário"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "150D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "vw_selecao_partida.Resultado"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "179D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.xG a Favor"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "183D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Gols Sofridos"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "196D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Gols Marcados"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "256D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "dim_etapas.Fase"
+          }
         }
       ]
     },

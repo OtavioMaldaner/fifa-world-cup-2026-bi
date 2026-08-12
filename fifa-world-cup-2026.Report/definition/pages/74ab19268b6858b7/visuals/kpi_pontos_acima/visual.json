@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "kpi_pontos_acima",
   "position": {
-    "x": 336,
-    "y": 128,
+    "x": 464,
+    "y": 48,
     "z": 2000,
     "height": 96,
-    "width": 296,
+    "width": 424,
     "tabOrder": 2000
   },
   "visual": {
@@ -54,7 +54,15 @@
     "objects": {
       "labels": [
         {
-          "properties": {}
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "24D"
+                }
+              }
+            }
+          }
         },
         {
           "properties": {
@@ -152,6 +160,13 @@
               "expr": {
                 "Literal": {
                   "Value": "'Pontos Acima do Esperado'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
                 }
               }
             }

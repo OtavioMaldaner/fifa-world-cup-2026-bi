@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "kpi_eficiencia",
   "position": {
-    "x": 960,
-    "y": 128,
-    "z": 8000,
+    "x": 1352,
+    "y": 48,
+    "z": 7000,
     "height": 96,
-    "width": 296,
+    "width": 424,
     "tabOrder": 7000
   },
   "visual": {
@@ -33,6 +33,21 @@
         }
       }
     },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "24D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
     "visualContainerObjects": {
       "title": [
         {
@@ -48,6 +63,13 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
                 }
               }
             }

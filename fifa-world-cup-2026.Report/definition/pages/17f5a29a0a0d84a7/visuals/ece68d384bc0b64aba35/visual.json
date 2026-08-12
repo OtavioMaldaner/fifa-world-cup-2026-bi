@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
-  "name": "kpi_eficiencia",
+  "name": "ece68d384bc0b64aba35",
   "position": {
-    "x": 1352,
+    "x": 464,
     "y": 48,
-    "z": 8000,
+    "z": 6000,
     "height": 96,
     "width": 424,
-    "tabOrder": 8000
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "card",
@@ -23,11 +23,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Eficiência Ofensiva (Gols/xG)"
+                  "Property": "Garçom do Torneio"
                 }
               },
-              "queryRef": "_Measures.Eficiência Ofensiva (Gols/xG)",
-              "nativeQueryRef": "Eficiência Ofensiva (Gols/xG)"
+              "queryRef": "_Measures.Garçom do Torneio",
+              "nativeQueryRef": "Garçom do Torneio"
             }
           ]
         }
@@ -52,24 +52,17 @@
       "title": [
         {
           "properties": {
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Eficiência Ofensiva'"
-                }
-              }
-            },
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
             "fontSize": {
               "expr": {
                 "Literal": {
                   "Value": "14D"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Maior Garçom'"
                 }
               }
             }

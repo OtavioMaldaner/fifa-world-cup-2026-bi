@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "chart_dispersao_xg",
   "position": {
-    "x": 768,
-    "y": 240,
-    "z": 5000,
-    "height": 224,
-    "width": 488,
+    "x": 904,
+    "y": 160,
+    "z": 4000,
+    "height": 272,
+    "width": 872,
     "tabOrder": 4000
   },
   "visual": {

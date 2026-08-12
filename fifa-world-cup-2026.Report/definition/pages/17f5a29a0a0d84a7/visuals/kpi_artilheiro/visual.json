@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "kpi_artilheiro",
   "position": {
-    "x": 24,
-    "y": 88,
-    "z": 7000,
-    "height": 100,
-    "width": 296,
-    "tabOrder": 6000
+    "x": 16,
+    "y": 48,
+    "z": 2000,
+    "height": 96,
+    "width": 432,
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "card",
@@ -32,6 +32,43 @@
           ]
         }
       }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "24D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Maior Artilheiro'"
+                }
+              }
+            }
+          }
+        }
+      ]
     },
     "drillFilterOtherVisuals": true
   }

@@ -207,6 +207,7 @@ table _Measures
 		lineageTag: 00000000-0000-0000-0000-000000000515
 
 	column _dummy
+		isHidden
 		lineageTag: 9742ced9-d7af-4b41-bd61-e0a4bc0feded
 		isNameInferred
 		sourceColumn: [_dummy]

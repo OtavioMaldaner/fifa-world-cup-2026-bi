@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "kpi_gols_marcados",
   "position": {
-    "x": 336,
-    "y": 128,
-    "width": 296,
-    "height": 96,
+    "x": 464,
+    "y": 48,
     "z": 0,
+    "height": 96,
+    "width": 424,
     "tabOrder": 0
   },
   "visual": {
@@ -51,6 +51,28 @@
         "isDefaultSort": true
       }
     },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "24D"
+                }
+              }
+            },
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "0L"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
     "visualContainerObjects": {
       "title": [
         {
@@ -66,6 +88,13 @@
               "expr": {
                 "Literal": {
                   "Value": "'Gols Marcados'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
                 }
               }
             }
