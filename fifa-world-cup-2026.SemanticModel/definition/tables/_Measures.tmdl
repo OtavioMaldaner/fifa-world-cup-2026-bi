@@ -36,7 +36,7 @@ table _Measures
 		displayFolder: _Desempenho
 		lineageTag: 00000000-0000-0000-0000-000000000201
 
-	measure Vitórias = CALCULATE([Total de Partidas], vw_selecao_partida[result] = "WIN")
+	measure Vitórias = CALCULATE([Total de Partidas], vw_selecao_partida[Resultado (Origem)] = "WIN")
 		formatString: #,##0
 		displayFolder: _Desempenho
 		lineageTag: 00000000-0000-0000-0000-000000000202
@@ -86,7 +86,7 @@ table _Measures
 		displayFolder: _Avançado
 		lineageTag: 00000000-0000-0000-0000-000000000305
 
-	measure 'Estabilidade da Escalação (%)' = AVERAGE(vw_estabilidade_escalacao[lineup_stability_pct])
+	measure 'Estabilidade da Escalação (%)' = DIVIDE(AVERAGE(vw_estabilidade_escalacao[lineup_stability_pct]), 100)
 		formatString: 0.0%
 		displayFolder: _Avançado
 		lineageTag: 00000000-0000-0000-0000-000000000306
@@ -207,6 +207,7 @@ table _Measures
 		lineageTag: 00000000-0000-0000-0000-000000000515
 
 	column _dummy
+		isHidden
 		lineageTag: 9742ced9-d7af-4b41-bd61-e0a4bc0feded
 		isNameInferred
 		sourceColumn: [_dummy]

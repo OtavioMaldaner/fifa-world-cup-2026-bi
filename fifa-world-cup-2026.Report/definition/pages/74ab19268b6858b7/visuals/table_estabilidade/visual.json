@@ -2,18 +2,18 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "table_estabilidade",
   "position": {
-    "x": 24,
-    "y": 458,
-    "z": 0,
-    "height": 200,
-    "width": 1232,
-    "tabOrder": 0
+    "x": 16,
+    "y": 440,
+    "z": 1000,
+    "height": 264,
+    "width": 872,
+    "tabOrder": 1000
   },
   "visual": {
-    "visualType": "tableEx",
+    "visualType": "barChart",
     "query": {
       "queryState": {
-        "Values": {
+        "Category": {
           "projections": [
             {
               "field": {
@@ -27,8 +27,13 @@
                 }
               },
               "queryRef": "dim_selecoes.Seleção",
-              "nativeQueryRef": "Seleção"
-            },
+              "nativeQueryRef": "Seleção",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
             {
               "field": {
                 "Measure": {
@@ -45,22 +50,25 @@
             }
           ]
         }
-      }
-    },
-    "objects": {
-      "columnHeaders": [
-        {
-          "properties": {
-            "autoSizeColumnWidth": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Measures"
+                  }
+                },
+                "Property": "Estabilidade da Escalação (%)"
               }
-            }
+            },
+            "direction": "Descending"
           }
-        }
-      ]
+        ],
+        "isDefaultSort": true
+      }
     },
     "visualContainerObjects": {
       "title": [

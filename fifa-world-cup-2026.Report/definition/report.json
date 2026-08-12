@@ -24,6 +24,8 @@
     "filters": [
       {
         "name": "238529dabfe9353dc07d",
+        "displayName": "Status",
+        "ordinal": 0,
         "field": {
           "Column": {
             "Expression": {
@@ -77,8 +79,25 @@
         "howCreated": "User",
         "isHiddenInViewMode": true,
         "isLockedInViewMode": true
+      },
+      {
+        "name": "4fdd81b5a4e5790a0533",
+        "ordinal": 1,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_selecoes"
+              }
+            },
+            "Property": "Seleção"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
       }
-    ]
+    ],
+    "filterSortOrder": "Custom"
   },
   "objects": {
     "section": [

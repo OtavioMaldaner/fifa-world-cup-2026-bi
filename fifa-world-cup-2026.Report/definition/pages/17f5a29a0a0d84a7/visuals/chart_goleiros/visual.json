@@ -1,5 +1,14 @@
 {
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "chart_goleiros",
+  "position": {
+    "x": 904,
+    "y": 160,
+    "z": 0,
+    "height": 248,
+    "width": 872,
+    "tabOrder": 0
+  },
   "visual": {
     "visualType": "clusteredBarChart",
     "query": {
@@ -18,7 +27,8 @@
                 }
               },
               "queryRef": "dim_jogadores.player_name",
-              "nativeQueryRef": "player_name"
+              "nativeQueryRef": "player_name",
+              "active": true
             }
           ]
         },
@@ -37,34 +47,6 @@
               },
               "queryRef": "_Measures.Defesas",
               "nativeQueryRef": "Defesas"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Jogos sem Sofrer Gol"
-                }
-              },
-              "queryRef": "_Measures.Jogos sem Sofrer Gol",
-              "nativeQueryRef": "Jogos sem Sofrer Gol"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Gols Sofridos (Jogador)"
-                }
-              },
-              "queryRef": "_Measures.Gols Sofridos (Jogador)",
-              "nativeQueryRef": "Gols Sofridos (Jogador)"
             }
           ]
         }
@@ -88,18 +70,38 @@
         "isDefaultSort": true
       }
     },
-    "objects": {},
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "0L"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Defesas por Goleiro'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
     "drillFilterOtherVisuals": true
   },
-  "position": {
-    "x": 648,
-    "y": 204,
-    "z": 0,
-    "width": 608,
-    "height": 238,
-    "tabOrder": 0
-  },
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "filterConfig": {
     "filters": [
       {
@@ -115,7 +117,6 @@
           }
         },
         "type": "Categorical",
-        "howCreated": "User",
         "filter": {
           "Version": 2,
           "From": [
@@ -154,7 +155,8 @@
               }
             }
           ]
-        }
+        },
+        "howCreated": "User"
       },
       {
         "name": "1deb0729882d492d7627",
@@ -169,7 +171,6 @@
           }
         },
         "type": "TopN",
-        "howCreated": "User",
         "filter": {
           "Version": 2,
           "From": [

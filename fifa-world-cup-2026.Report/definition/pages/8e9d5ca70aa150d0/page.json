@@ -2,7 +2,41 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
   "name": "8e9d5ca70aa150d0",
   "displayName": "Perfil da Seleção",
-  "width": 1280,
+  "displayOption": "FitToWidth",
   "height": 720,
-  "displayOption": "FitToPage"
+  "width": 1792,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "2b0b4351e2a4e790ea3d",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_etapas"
+              }
+            },
+            "Property": "Fase"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      }
+    ]
+  },
+  "objects": {
+    "outspacePane": [
+      {
+        "properties": {
+          "border": {
+            "expr": {
+              "Literal": {
+                "Value": "true"
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
 }

@@ -2,36 +2,18 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "kpi_pontos",
   "position": {
-    "x": 24,
-    "y": 88,
-    "z": 0,
-    "height": 100,
-    "width": 296,
-    "tabOrder": 0
+    "x": 16,
+    "y": 48,
+    "z": 8000,
+    "height": 96,
+    "width": 432,
+    "tabOrder": 8000
   },
   "visual": {
-    "visualType": "kpi",
+    "visualType": "card",
     "query": {
       "queryState": {
-        "Goal": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Pontos Médios por Seleção"
-                }
-              },
-              "queryRef": "_Measures.Pontos Médios por Seleção",
-              "nativeQueryRef": "Pontos Médios por Seleção"
-            }
-          ]
-        },
-        "Indicator": {
+        "Values": {
           "projections": [
             {
               "field": {
@@ -48,49 +30,42 @@
               "nativeQueryRef": "Pontos Conquistados"
             }
           ]
-        },
-        "TrendLine": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "vw_selecao_partida"
-                    }
-                  },
-                  "Property": "Data da Partida"
-                }
-              },
-              "queryRef": "vw_selecao_partida.Data da Partida",
-              "nativeQueryRef": "Data da Partida"
-            }
-          ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "_Measures"
-                  }
-                },
-                "Property": "Pontos Conquistados"
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "24D"
+                }
               }
             },
-            "direction": "Descending"
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "0L"
+                }
+              }
+            }
           }
-        ],
-        "isDefaultSort": true
-      }
+        }
+      ]
     },
     "visualContainerObjects": {
       "title": [
         {
           "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Pontos Conquistados'"
+                }
+              }
+            },
             "show": {
               "expr": {
                 "Literal": {
@@ -98,23 +73,10 @@
                 }
               }
             },
-            "text": {
+            "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "'Pontos Conquistados'"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "subTitle": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
+                  "Value": "14D"
                 }
               }
             }

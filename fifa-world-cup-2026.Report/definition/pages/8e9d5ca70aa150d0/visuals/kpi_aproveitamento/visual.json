@@ -2,36 +2,18 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "kpi_aproveitamento",
   "position": {
-    "x": 336,
-    "y": 88,
-    "z": 0,
-    "height": 100,
-    "width": 296,
-    "tabOrder": 0
+    "x": 464,
+    "y": 48,
+    "z": 1000,
+    "height": 96,
+    "width": 424,
+    "tabOrder": 1000
   },
   "visual": {
-    "visualType": "kpi",
+    "visualType": "card",
     "query": {
       "queryState": {
-        "Goal": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Aproveitamento (%) Médio"
-                }
-              },
-              "queryRef": "_Measures.Aproveitamento (%) Médio",
-              "nativeQueryRef": "Aproveitamento (%) Médio"
-            }
-          ]
-        },
-        "Indicator": {
+        "Values": {
           "projections": [
             {
               "field": {
@@ -48,49 +30,35 @@
               "nativeQueryRef": "Aproveitamento (%)"
             }
           ]
-        },
-        "TrendLine": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "vw_selecao_partida"
-                    }
-                  },
-                  "Property": "Data da Partida"
-                }
-              },
-              "queryRef": "vw_selecao_partida.Data da Partida",
-              "nativeQueryRef": "Data da Partida"
-            }
-          ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "_Measures"
-                  }
-                },
-                "Property": "Aproveitamento (%)"
-              }
-            },
-            "direction": "Descending"
-          }
-        ],
-        "isDefaultSort": true
       }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "24D"
+                }
+              }
+            }
+          }
+        }
+      ]
     },
     "visualContainerObjects": {
       "title": [
         {
           "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Aproveitamento'"
+                }
+              }
+            },
             "show": {
               "expr": {
                 "Literal": {
@@ -98,23 +66,10 @@
                 }
               }
             },
-            "text": {
+            "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "'Aproveitamento (%)'"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "subTitle": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
+                  "Value": "14D"
                 }
               }
             }

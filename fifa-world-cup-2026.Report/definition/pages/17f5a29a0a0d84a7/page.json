@@ -2,62 +2,66 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
   "name": "17f5a29a0a0d84a7",
   "displayName": "Jogadores",
-  "width": 1280,
+  "displayOption": "FitToWidth",
   "height": 720,
-  "displayOption": "FitToPage",
+  "width": 1792,
   "filterConfig": {
     "filters": [
       {
-        "name": "0be1f80e0e7d85d2fc42",
+        "name": "918fca82acc6d787b30a",
+        "displayName": "Jogador",
         "field": {
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "ft_estatisticas_jogador"
+                "Entity": "dim_jogadores"
               }
             },
-            "Property": "minutes_played"
+            "Property": "player_name"
           }
         },
-        "type": "Advanced",
+        "type": "Categorical",
         "howCreated": "User",
-        "filter": {
-          "Version": 2,
-          "From": [
+        "objects": {
+          "general": [
             {
-              "Name": "d",
-              "Entity": "ft_estatisticas_jogador",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "Comparison": {
-                  "ComparisonKind": 2,
-                  "Left": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Source": "d"
-                        }
-                      },
-                      "Property": "minutes_played"
-                    }
-                  },
-                  "Right": {
-                    "Literal": {
-                      "Value": "'270'"
-                    }
-                  }
-                }
-              }
+              "properties": {}
             }
           ]
-        },
-        "isHiddenInViewMode": true,
-        "isLockedInViewMode": true
+        }
       }
     ]
-  }
+  },
+  "visualInteractions": [
+    {
+      "source": "chart_artilharia",
+      "target": "chart_goleiros",
+      "type": "DataFilter"
+    },
+    {
+      "source": "chart_artilharia",
+      "target": "table_jogadores",
+      "type": "DataFilter"
+    },
+    {
+      "source": "chart_goleiros",
+      "target": "chart_artilharia",
+      "type": "DataFilter"
+    },
+    {
+      "source": "chart_goleiros",
+      "target": "table_jogadores",
+      "type": "DataFilter"
+    },
+    {
+      "source": "table_jogadores",
+      "target": "chart_goleiros",
+      "type": "DataFilter"
+    },
+    {
+      "source": "table_jogadores",
+      "target": "chart_artilharia",
+      "type": "DataFilter"
+    }
+  ]
 }

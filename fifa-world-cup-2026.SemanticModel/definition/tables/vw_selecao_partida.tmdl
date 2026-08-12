@@ -172,19 +172,33 @@ table vw_selecao_partida
 
 		annotation SummarizationSetBy = Automatic
 
-	column Resultado
-		dataType: string
-		lineageTag: 72821297-1f23-4d87-b72e-8dc8ccf3d194
-		summarizeBy: none
-		sourceColumn: result
-
-		annotation SummarizationSetBy = Automatic
-
 	column team_role
 		dataType: string
 		lineageTag: f8c734a0-f20a-4d74-ade3-93b718a37eef
 		summarizeBy: none
 		sourceColumn: team_role
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Resultado (Origem)'
+		dataType: string
+		isHidden
+		lineageTag: 9c4e2a1f-6b8d-4a3e-b1f0-7e5d8c9a2f6b
+		summarizeBy: none
+		sourceColumn: result
+
+		annotation SummarizationSetBy = Automatic
+
+	column Resultado =
+			SWITCH(
+				TRUE(),
+				vw_selecao_partida[Resultado (Origem)] = "WIN", "Vitória",
+				vw_selecao_partida[Resultado (Origem)] = "DRAW", "Empate",
+				vw_selecao_partida[Resultado (Origem)] = "LOSS", "Derrota",
+				vw_selecao_partida[Resultado (Origem)]
+			)
+		lineageTag: 72821297-1f23-4d87-b72e-8dc8ccf3d194
+		summarizeBy: none
 
 		annotation SummarizationSetBy = Automatic
 

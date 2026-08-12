@@ -4,22 +4,22 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 0,
-        "y": 0
+        "x": 159.30127063075338,
+        "y": 601.091055546129
       },
       "nodes": [
         {
           "location": {
-            "x": 681.69577960142692,
-            "y": 30.849374839912571
+            "x": 288.52930301779537,
+            "y": 38.410268620367027
           },
           "nodeIndex": "dim_estadios",
-          "nodeLineageTag": "956c40c0-2902-40a7-8e5d-6814bde26503",
+          "nodeLineageTag": "55197ba8-9125-4536-b18d-58767a7ddebb",
           "size": {
             "height": 200,
             "width": 234
           },
-          "zIndex": 1
+          "zIndex": 10
         },
         {
           "location": {
@@ -32,7 +32,7 @@
             "height": 152,
             "width": 234
           },
-          "zIndex": 2
+          "zIndex": 11
         },
         {
           "location": {
@@ -45,7 +45,7 @@
             "height": 248,
             "width": 234
           },
-          "zIndex": 3
+          "zIndex": 12
         },
         {
           "location": {
@@ -58,20 +58,20 @@
             "height": 224,
             "width": 234
           },
-          "zIndex": 4
+          "zIndex": 13
         },
         {
           "location": {
-            "x": 901.29526057857834,
-            "y": 290.17505984441345
+            "x": 723.6142567378987,
+            "y": 23.023479601689431
           },
           "nodeIndex": "ft_partidas",
-          "nodeLineageTag": "9798a0d6-610a-45c4-8ac9-af845d55b0fb",
+          "nodeLineageTag": "eb65e431-3965-4767-9ec5-be7409b8bf7a",
           "size": {
             "height": 300,
             "width": 234
           },
-          "zIndex": 5
+          "zIndex": 14
         },
         {
           "location": {
@@ -84,7 +84,7 @@
             "height": 152,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 1
         },
         {
           "location": {
@@ -97,7 +97,7 @@
             "height": 248,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 2
         },
         {
           "location": {
@@ -110,7 +110,7 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 3
         },
         {
           "location": {
@@ -123,7 +123,7 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 4
         },
         {
           "location": {
@@ -136,7 +136,7 @@
             "height": 224,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 5
         },
         {
           "location": {
@@ -149,7 +149,7 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 6
         },
         {
           "location": {
@@ -162,7 +162,7 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 7
         },
         {
           "location": {
@@ -175,7 +175,7 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 8
         },
         {
           "location": {
@@ -188,12 +188,12 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 9
         },
         {
           "location": {
-            "x": 1828.1262053784574,
-            "y": 607.41652530613283
+            "x": 1876.0118659880022,
+            "y": 601.11578048908746
           },
           "nodeIndex": "_Measures",
           "nodeLineageTag": "00000000-0000-0000-0000-000000000001",
@@ -201,11 +201,11 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 15
         }
       ],
       "name": "Todas as tabelas",
-      "zoomValue": 50.221909917716175,
+      "zoomValue": 79.355697543463776,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,
